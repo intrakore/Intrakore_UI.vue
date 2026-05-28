@@ -2,15 +2,10 @@
   <component
     :is="getLinkComponent()"
     :class="[
-      roundedClass,
-      isSelected || isActive ? 'bg-surface-gray-2' : '',
+      'list-row-card',
+      isSelected || isActive ? 'list-row-selected' : '',
       isHoverable && !row.disabled ? 'cursor-pointer' : '',
-      isHoverable && !row.disabled
-        ? isSelected || isActive
-          ? 'hover:bg-surface-gray-3'
-          : 'hover:bg-surface-gray-1'
-        : '',
-      row.disabled ? 'pointer-events-none' : '',
+      row.disabled ? 'pointer-events-none opacity-50' : '',
     ]"
     class="flex flex-col transition-all duration-300 ease-in-out"
     v-bind="{
@@ -83,16 +78,7 @@
           </slot>
         </div>
       </div>
-
-      <div
-        v-if="!isLastRow"
-        class="h-px border-t"
-        :class="
-          roundedClass === 'rounded' || roundedClass?.includes?.('rounded-b')
-            ? 'mx-2 border-outline-gray-1'
-            : 'border-t-[--surface-gray-2]'
-        "
-      />
+      <!-- divider removed: card border replaces row separator -->
     </component>
   </component>
 </template>
@@ -227,3 +213,39 @@ const handleCheckboxClick = (event) => {
   }
 }
 </script>
+
+<style scoped>
+.list-row-card {
+  border: 1px solid var(--outline-gray-1);
+  border-radius: 8px;
+  margin-bottom: 6px;
+  background-color: var(--surface-white);
+}
+
+.list-row-card:hover {
+  border-color: var(--outline-blueprint-3);
+  background-color: var(--surface-white);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.list-row-selected {
+  background-color: var(--surface-blueprint-1) !important;
+  border-color: var(--outline-blueprint-2) !important;
+}
+
+.list-row-selected:hover {
+  background-color: var(--surface-blueprint-1) !important;
+  border-color: var(--outline-blueprint-3) !important;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme='dark'] .list-row-card {
+  background-color: var(--surface-gray-2);
+  border-color: var(--outline-gray-2);
+}
+
+[data-theme='dark'] .list-row-card:hover {
+  border-color: var(--outline-blueprint-3);
+  background-color: var(--surface-gray-2);
+}
+</style>
