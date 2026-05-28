@@ -104,7 +104,7 @@ defineOptions({ inheritAttrs: false })
 const props = withDefaults(defineProps<ButtonProps>(), {
   theme: 'blueprint',
   size: 'sm',
-  variant: 'subtle',
+  variant: 'outline',
   loading: false,
   disabled: false,
   type: "button"

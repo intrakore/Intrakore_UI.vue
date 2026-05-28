@@ -69,7 +69,7 @@ const startResizing = (e) => {
   const onMouseMove = (e) => {
     document.body.classList.add('select-none')
     document.body.classList.add('cursor-col-resize')
-    resizer.value.style.backgroundColor = 'rgb(199 199 199)'
+    resizer.value.style.backgroundColor = 'rgb(87 99 250)'
     let newWidth = initialWidth + (e.clientX - initialX)
 
     props.item.width = `${newWidth < 50 ? 50 : newWidth}px`

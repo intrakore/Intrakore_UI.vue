@@ -30,7 +30,7 @@
               {{ props.label }}
             </label>
             <button
-              class="flex h-7 w-full items-center justify-between gap-2 rounded bg-surface-gray-2 px-2 py-1 transition-colors hover:bg-surface-gray-3 border border-transparent focus:border-outline-gray-4 focus:outline-none focus:ring-2 focus:ring-outline-gray-3"
+              class="flex h-7 w-full items-center justify-between gap-2 rounded bg-surface-blueprint-1 px-2 py-1 transition-colors hover:bg-surface-blueprint-2 border border-transparent focus:border-outline-blueprint-1 focus:outline-none focus:ring-2 focus:ring-outline-blueprint-2"
               :class="{ 'bg-surface-gray-3': isComboboxOpen }"
               @click="() => togglePopover()"
             >
@@ -74,7 +74,7 @@
                 <div class="relative w-full">
                   <ComboboxInput
                     ref="searchInput"
-                    class="form-input w-full focus:bg-surface-gray-3 hover:bg-surface-gray-4 text-ink-gray-8"
+                    class="form-input w-full focus:bg-surface-blueprint-1 hover:bg-surface-blueprint-2 text-ink-gray-8"
                     type="text"
                     :value="query"
                     @change="query = $event.target.value"
@@ -120,7 +120,7 @@
                     :class="[
                       'flex cursor-pointer items-center justify-between rounded px-2.5 py-1.5 text-base',
                       {
-                        'bg-surface-gray-3': active,
+                        'bg-surface-blueprint-2': active,
                         'opacity-50': option.disabled,
                       },
                     ]"

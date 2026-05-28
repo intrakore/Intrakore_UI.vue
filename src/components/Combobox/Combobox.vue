@@ -51,7 +51,7 @@ defineOptions({
 const props = withDefaults(defineProps<ComboboxProps>(), {
   options: () => [],
   trigger: 'input',
-  variant: 'subtle',
+  variant: 'outline',
   size: 'sm',
   placeholder: 'Select option',
   disabled: false,

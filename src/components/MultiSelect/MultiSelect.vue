@@ -37,7 +37,7 @@ defineOptions({
 
 const props = withDefaults(defineProps<MultiSelectProps>(), {
   options: () => [],
-  variant: 'subtle',
+  variant: 'outline',
   size: 'sm',
   placeholder: 'Select option',
   disabled: false,

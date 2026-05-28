@@ -66,7 +66,7 @@ defineOptions({
 
 const props = withDefaults(defineProps<TextareaProps>(), {
   size: 'sm',
-  variant: 'subtle',
+  variant: 'outline',
   rows: 3,
 })
 
@@ -133,9 +133,9 @@ const inputClasses = computed(() => {
   let variant = props.disabled ? 'disabled' : props.variant
   let variantClasses = {
     subtle:
-      'border border-[--surface-blueprint-1] bg-surface-blueprint-1 placeholder-ink-gray-4 hover:border-outline-blueprint-2 hover:bg-surface-blueprint-2 focus:bg-surface-white focus:border-outline-blueprint-2 focus:shadow-sm focus:ring-0 focus-visible:ring-2 focus-visible:ring-outline-blueprint-2',
+      'border border-[--surface-gray-2] bg-surface-gray-2 placeholder-ink-gray-5 hover:border-outline-gray-4 hover:bg-surface-gray-3 focus:bg-surface-white focus:border-outline-gray-4 focus:shadow-sm focus:ring-0 focus-visible:ring-2 focus-visible:ring-outline-gray-3',
     outline:
-      'border border-outline-blueprint-2 bg-surface-white placeholder-ink-gray-4 hover:border-outline-blueprint-3 hover:shadow-sm focus:bg-surface-white focus:border-outline-blueprint-2 focus:shadow-sm focus:ring-0 focus-visible:ring-2 focus-visible:ring-outline-blueprint-2',
+      'border border-outline-gray-4 bg-surface-white placeholder-ink-gray-5 hover:border-outline-gray-5 hover:shadow-sm focus:bg-surface-white focus:border-outline-gray-5 focus:shadow-sm focus:ring-0 focus-visible:ring-2 focus-visible:ring-outline-gray-3',
     disabled: [
       'border bg-surface-gray-1 placeholder-ink-gray-3',
       props.variant === 'outline'
