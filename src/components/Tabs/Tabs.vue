@@ -7,7 +7,6 @@ import {
   TabsRoot,
   TabsTrigger,
 } from 'reka-ui'
-
 import type { TabsEmits, TabsProps } from './types'
 
 const props = defineProps<TabsProps>()
@@ -43,7 +42,6 @@ const dir = computed<'rtl' | 'ltr'>(
 
 const indicatorXCss = `left-0 bottom-0 h-[2px] w-[--reka-tabs-indicator-size] transition-[width,transform]
                           translate-x-[--reka-tabs-indicator-position] translate-y-[1px]`
-
 const indicatorYCss = `end-0 top-0 w-[2px] h-[--reka-tabs-indicator-size]
                        translate-y-[--reka-tabs-indicator-position] transition-[height,transform]`
 
@@ -56,7 +54,6 @@ defineSlots<{
   'tab-item'?: (props: {
     tab: { label: string; icon?: string | Component; route?: string }
   }) => any
-
   /** Content rendered for each tab panel. */
   'tab-panel'?: (props: {
     tab: { label: string; icon?: string | Component; route?: string }
@@ -84,7 +81,8 @@ defineSlots<{
         class="absolute rounded-full duration-300"
         :class="props.vertical ? indicatorYCss : indicatorXCss"
       >
-        <div class="w-full h-full bg-surface-blueprint-8" />
+        <!-- indicator color matches SCSS: --text-color = ink-gray-9 -->
+        <div class="w-full h-full bg-ink-gray-9" />
       </TabsIndicator>
 
       <TabsTrigger as="template" v-for="(tab, i) in props.tabs" :value="i">
@@ -92,7 +90,10 @@ defineSlots<{
           <component
             :is="tab.route ? 'router-link' : Btn"
             :to="tab.route"
-            class="flex items-center gap-1.5 text-base text-ink-blueprint-2 duration-300 ease-in-out hover:text-ink-blueprint-3 data-[state=active]:text-ink-blueprint-4"
+            class="flex items-center gap-1.5 text-base duration-300 ease-in-out
+                   text-ink-gray-3
+                   hover:text-ink-gray-7
+                   data-[state=active]:text-ink-gray-9"
             :class="{ 'px-2.5': props.vertical, 'py-2.5': !props.vertical }"
           >
             <span
@@ -105,7 +106,6 @@ defineSlots<{
               :is="tab.icon"
               class="size-4"
             />
-
             {{ tab.label }}
           </component>
         </slot>

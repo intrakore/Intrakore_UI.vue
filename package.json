@@ -1,7 +1,7 @@
 {
-  "name": "frappe-ui",
+  "name": "intrakore-ui",
   "version": "0.1.278",
-  "description": "A set of components and utilities for rapid UI development",
+  "description": "Intrakore UI - Design System for Intrakore ERP",
   "type": "module",
   "sideEffects": false,
   "scripts": {

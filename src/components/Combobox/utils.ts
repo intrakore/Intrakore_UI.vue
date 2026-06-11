@@ -250,11 +250,11 @@ export function triggerVariantClasses(
 
   return {
     subtle:
-      'border border-outline-gray-3 bg-surface-gray-2 hover:border-outline-gray-4 hover:bg-surface-gray-3',
+      'border border-outline-gray-3 bg-surface-gray-2 hover:border-outline-blueprint-3 hover:bg-surface-gray-3',
     outline:
-      'border border-outline-gray-4 bg-surface-white hover:border-outline-gray-5',
+      'border border-outline-gray-4 bg-surface-white hover:border-outline-blueprint-3',
     ghost:
-      'border border-transparent bg-transparent hover:bg-surface-gray-3 focus:bg-surface-gray-3',
+      'border border-transparent bg-transparent hover:bg-surface-blueprint-2focus:bg-surface-blueprint-2',
   }[variant]
 }
 

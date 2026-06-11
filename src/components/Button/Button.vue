@@ -120,6 +120,7 @@ const buttonClasses = computed(() => {
     green:
       'text-ink-white bg-surface-green-3 hover:bg-green-700 active:bg-green-800',
     red: 'text-ink-white bg-surface-red-5 hover:bg-surface-red-6 active:bg-surface-red-7',
+    // PRIMARY: surface-blueprint-5, ink-blueprint-1 — matches .btn-primary in SCSS
     blueprint: 'text-ink-blueprint-1 bg-surface-blueprint-5 hover:bg-surface-blueprint-6 active:bg-surface-blueprint-7',
   }[props.theme]
 
@@ -129,16 +130,21 @@ const buttonClasses = computed(() => {
     green:
       'text-green-800 bg-surface-green-2 hover:bg-green-200 active:bg-green-300',
     red: 'text-red-700 bg-surface-red-2 hover:bg-surface-red-3 active:bg-surface-red-4',
+    // SUBTLE: surface-blueprint-2, ink-blueprint-4 — matches .btn-subtle in SCSS
     blueprint: 'text-ink-blueprint-4 bg-surface-blueprint-2 hover:bg-surface-blueprint-3 active:bg-surface-blueprint-4',
   }[props.theme]
 
   let outlineClasses = {
-    gray: 'text-ink-gray-8 bg-surface-white bg-surface-white border border-outline-gray-2 hover:border-outline-gray-3 active:border-outline-gray-3 active:bg-surface-gray-4',
+    gray: 'text-ink-gray-8 bg-surface-white border border-outline-gray-2 hover:border-outline-gray-3 active:border-outline-gray-3 active:bg-surface-gray-4',
     blue: 'text-ink-blue-3 bg-surface-white border border-outline-blue-1 hover:border-blue-400 active:border-blue-400 active:bg-blue-300',
     green:
       'text-green-800 bg-surface-white border border-outline-green-2 hover:border-green-500 active:border-green-500 active:bg-green-300',
     red: 'text-red-700 bg-surface-white border border-outline-red-1 hover:border-outline-red-2 active:border-outline-red-2 active:bg-surface-red-3',
-    blueprint: 'text-ink-blueprint-4 bg-surface-white border border-outline-blueprint-2 hover:border-outline-blueprint-3 active:border-outline-blueprint-4 active:bg-surface-blueprint-3',
+    // OUTLINE (default/secondary): gray border at rest, Blueprint on hover/active — matches .btn-default in SCSS
+    // rest: outline-gray-4, text-ink-gray-7 (--text-color)
+    // hover: outline-blueprint-3
+    // active: outline-blueprint-4, surface-blueprint-3
+    blueprint: 'text-ink-gray-7 bg-surface-white border border-outline-gray-4 hover:border-outline-blueprint-3 active:border-outline-blueprint-4 active:bg-surface-blueprint-3',
   }[props.theme]
 
   let ghostClasses = {
@@ -147,6 +153,7 @@ const buttonClasses = computed(() => {
     green:
       'text-green-800 bg-transparent hover:bg-green-200 active:bg-green-300',
     red: 'text-red-700 bg-transparent hover:bg-surface-red-3 active:bg-surface-red-4',
+    // GHOST: transparent, ink-blueprint-4 — matches .btn-ghost in SCSS
     blueprint: 'text-ink-blueprint-4 bg-transparent hover:bg-surface-blueprint-2 active:bg-surface-blueprint-3',
   }[props.theme]
 
@@ -155,6 +162,7 @@ const buttonClasses = computed(() => {
     blue: 'focus-visible:ring focus-visible:ring-blue-400',
     green: 'focus-visible:ring focus-visible:ring-outline-green-2',
     red: 'focus-visible:ring focus-visible:ring-outline-red-2',
+    // FOCUS RING: always Blueprint — matches all variants in SCSS
     blueprint: 'focus-visible:ring focus-visible:ring-outline-blueprint-2',
   }[props.theme]
 
@@ -191,9 +199,15 @@ const buttonClasses = computed(() => {
     'red-outline':
       'bg-surface-red-2 text-ink-red-2 border border-outline-red-1',
     'red-ghost': 'text-ink-red-2',
+
+    // DISABLED states — matches SCSS exactly
+    // solid disabled: surface-blueprint-1, ink-gray-4
+    // outline disabled: surface-gray-1, outline-gray-3, ink-gray-4
+    // subtle disabled: surface-blueprint-1, ink-gray-4
+    // ghost disabled: ink-gray-4 only
     'blueprint-solid': 'bg-surface-blueprint-1 text-ink-gray-4',
     'blueprint-subtle': 'bg-surface-blueprint-1 text-ink-gray-4',
-    'blueprint-outline': 'bg-surface-blueprint-1 text-ink-gray-4 border border-outline-blueprint-1',
+    'blueprint-outline': 'bg-surface-gray-1 text-ink-gray-4 border border-outline-gray-3',
     'blueprint-ghost': 'text-ink-gray-4',
   }
   let disabledClasses = disabledClassesMap[themeVariant]

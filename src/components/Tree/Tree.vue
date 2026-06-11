@@ -24,7 +24,6 @@
           />
         </slot>
       </div>
-
       <!-- slot to only override the label -->
       <slot name="label" v-bind="{ node, hasChildren, isCollapsed }">
         <div class="text-base truncate" :class="hasChildren ? '' : 'pl-3.5'">
@@ -38,7 +37,7 @@
   <div v-if="hasChildren && !isCollapsed" class="flex">
     <div
       :style="{ paddingLeft: linePadding }"
-      class="border-r border-outline-blueprint-2"
+      class="border-r border-outline-gray-2"
       v-if="options.showIndentationGuides"
     ></div>
     <ul class="w-full" :style="{ paddingLeft: options.indentWidth }">
@@ -51,11 +50,9 @@
               v-bind="{ node, hasChildren, isCollapsed, toggleCollapsed }"
             />
           </template>
-
           <template #icon="{ hasChildren, isCollapsed }">
             <slot name="icon" v-bind="{ hasChildren, isCollapsed }" />
           </template>
-
           <template #label="{ node, hasChildren, isCollapsed }">
             <slot name="label" v-bind="{ node, hasChildren, isCollapsed }" />
           </template>
@@ -87,13 +84,11 @@ const slots = defineSlots<{
     isCollapsed: boolean
     toggleCollapsed: (event: MouseEvent) => void
   }
-
   /** Slot to override only the node expand/collapse icon */
   icon: {
     hasChildren: boolean
     isCollapsed: boolean
   }
-
   /** Slot to override only the node label/content */
   label: {
     node: TreeNode
@@ -103,11 +98,8 @@ const slots = defineSlots<{
 }>()
 
 const isCollapsed = ref(props.options.defaultCollapsed ?? true)
-
 const linePadding = ref('')
-
 const hasChildren = computed(() => props.node.children?.length > 0)
-
 const iconRef = ref<HTMLElement | null>(null)
 
 const toggleCollapsed = (event: MouseEvent) => {

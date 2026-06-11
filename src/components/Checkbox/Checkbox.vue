@@ -26,6 +26,7 @@
     </label>
   </div>
 </template>
+
 <script lang="ts" setup>
 import { computed, useAttrs } from 'vue'
 import { useId } from '../../utils/useId'
@@ -37,7 +38,6 @@ const props = withDefaults(defineProps<CheckboxProps>(), {
 })
 
 const attrs = useAttrs()
-
 const htmlId = props.id ?? useId()
 
 const labelClasses = computed(() => {
@@ -46,7 +46,8 @@ const labelClasses = computed(() => {
       sm: 'text-base font-medium',
       md: 'text-lg font-medium',
     }[props.size],
-    props.disabled ? 'text-ink-blueprint-2' : 'text-ink-blueprint-4',
+    // gray-at-rest: normal = ink-gray-7, disabled = ink-gray-4
+    props.disabled ? 'text-ink-gray-4' : 'text-ink-gray-7',
     'select-none',
   ]
 })
@@ -59,8 +60,8 @@ const inputClasses = computed(() => {
   let interactionClasses = props.disabled
     ? ''
     : props.padding
-      ? 'focus:ring-0'
-      : 'hover:shadow-sm focus:ring-0 focus-visible:ring-2 focus-visible:ring-outline-blueprint-2 active:bg-surface-blueprint-1'
+    ? 'focus:ring-0'
+    : 'hover:shadow-sm focus:ring-0 focus-visible:ring-2 focus-visible:ring-outline-blueprint-2 active:bg-surface-blueprint-1'
 
   let sizeClasses = {
     sm: 'w-3.5 h-3.5',
