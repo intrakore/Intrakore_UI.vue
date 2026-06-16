@@ -1,10 +1,10 @@
 <template>
   <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
-    <div v-for="item in items" :key="item.label" class="ik-card rounded-xl border border-outline-gray-2 bg-surface-white px-4 py-4 text-center">
-      <p class="text-[10px] font-bold uppercase tracking-[0.07em] text-ink-gray-5 m-0 mb-2" style="font-family:var(--font-body)">{{ item.label }}</p>
+    <div v-for="item in items" :key="item.label" class="ik-card rounded-xl border border-outline-gray-2 bg-surface-gray-1 px-4 py-4 text-left">
+      <p class="text-[16px] font-medium tracking-[0.02em] text-ink-gray-8 m-0 mb-2" style="font-family:var(--font-body)">{{ item.label }}</p>
       <p class="text-[20px] font-bold text-ink-gray-9 m-0 mb-1" style="font-family:var(--font-body)">{{ item.value }}</p>
       <p
-        class="text-[10.5px] m-0"
+        class="text-[12px] m-0"
         :class="item.tone === 'green' ? 'text-ink-green-3 font-semibold' : item.tone === 'amber' ? 'text-ink-amber-3 font-semibold' : 'text-ink-gray-5'"
         style="font-family:var(--font-body)"
       >{{ item.sub }}</p>

@@ -12,17 +12,22 @@
         <p class="text-[14px] leading-[1.15] text-ink-gray-6 tracking-[0.28px] m-0 mt-1" style="font-family:var(--font-body); font-weight:350;">
           Everything about one package — scope, execution, and full history in one place.
         </p>
-        <div class="flex items-center gap-2 text-[12px] text-ink-gray-6 flex-wrap mt-3" style="font-family:var(--font-body)">
-          <span>14 BOQ lines</span>
-          <span class="text-ink-gray-3">·</span>
-          <span>AED 2,450,000</span>
-          <span class="text-ink-gray-3">·</span>
-          <span>Bill 4 · Façade, Finishes &amp; MEP</span>
-          <span class="text-ink-gray-3">·</span>
-          <span>⊟ Subcontracted</span>
-          <span class="text-ink-gray-3">·</span>
-          <span class="text-ink-amber-3 font-semibold">In tender · closes Friday</span>
-        </div>
+        <div class="flex gap-2 items-center mt-3 flex-wrap">
+        <span class="inline-flex items-center gap-2 bg-surface-blueprint-2 rounded-full px-2 py-[4.5px] text-[12px] font-medium text-ink-blueprint-4 tracking-[0.24px]" style="font-family:var(--font-body)">
+          14 BOQ lines  AED 2,450,000
+        </span>
+        <span class="inline-flex items-center gap-2 bg-surface-gray-2 rounded-full px-2 py-[4.5px] text-[12px] font-medium text-ink-gray-6 tracking-[0.24px]" style="font-family:var(--font-body)">
+          Bill 4  Façade | Finishes & MEP  Subcontracted
+        </span>
+        <span class="inline-flex items-center gap-2 bg-surface-amber-1 rounded-full px-2 py-[4.5px] text-[12px] font-medium text-ink-amber-3 tracking-[0.24px]" style="font-family:var(--font-body)">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+            <path d="M5.134 1.93a1 1 0 0 1 1.732 0l4.33 7.5A1 1 0 0 1 10.33 11H1.67a1 1 0 0 1-.866-1.5l4.33-7.5Z" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round"/>
+            <line x1="6" y1="5" x2="6" y2="7.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
+            <circle cx="6" cy="9.25" r="0.55" fill="currentColor"/>
+          </svg>
+          In tender closes Friday
+        </span>
+      </div>
       </div>
       <button
         type="button"
@@ -56,12 +61,12 @@
             <div class="flex flex-col items-center gap-1.5 shrink-0" style="width:110px">
               <div
                 class="size-7 rounded-full flex items-center justify-center text-[12px] font-bold shrink-0"
-                :class="step.state === 'done' ? 'bg-ink-green-3 text-white' : step.state === 'active' ? 'bg-ink-blueprint-4 text-white' : 'bg-surface-gray-2 text-ink-gray-4 border border-outline-gray-3'"
+                :class="step.state === 'done' ? 'bg-surface-green-3 text-white' : step.state === 'active' ? 'bg-surface-blueprint-4 text-white' : 'bg-surface-gray-2 text-ink-gray-4 border border-outline-gray-3'"
               >{{ step.state === 'done' ? '✓' : step.state === 'active' ? '●' : '○' }}</div>
               <p class="text-[11px] font-semibold m-0 text-center" :class="step.state === 'pending' ? 'text-ink-gray-4' : 'text-ink-gray-8'" style="font-family:var(--font-body)">{{ step.label }}</p>
               <p class="text-[10px] text-ink-gray-5 m-0 text-center" style="font-family:var(--font-body)">{{ step.sub }}</p>
             </div>
-            <div v-if="i < timelineSteps.length - 1" class="h-[2px] flex-1 mt-[13px] min-w-[16px]" :class="step.state === 'done' ? 'bg-ink-green-3' : 'bg-outline-gray-2'" />
+            <div v-if="i < timelineSteps.length - 1" class="h-[2px] flex-1 mt-[13px] min-w-[16px]" :class="step.state === 'done' ? 'bg-surface-green-3' : 'bg-outline-gray-2'" />
           </template>
         </div>
       </div>
@@ -92,7 +97,7 @@
           <div class="mt-3.5">
             <button
               type="button"
-              class="px-3.5 py-2 rounded-lg bg-ink-blueprint-4 text-white text-[12.5px] font-semibold hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-outline-blueprint-2"
+              class="px-3.5 py-2 rounded-lg bg-surface-blueprint-5 text-white text-[12.5px] font-semibold hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-outline-blueprint-2"
               style="font-family:var(--font-body)"
               @click="activeTab = 'execution'"
             >Continue tender setup →</button>
@@ -143,7 +148,13 @@
     <template v-if="activeTab === 'execution'">
 
       <div class="ik-card rounded-xl border border-outline-gray-2 bg-surface-white px-4 py-3 flex items-center gap-2.5 text-[12.5px]" style="font-family:var(--font-body)">
-        <span class="text-ink-amber-3 font-semibold">⊟ Tender in progress</span>
+        <span class="inline-flex items-center gap-1.5 text-ink-amber-3 font-semibold">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="22" y1="2" x2="11" y2="13"/>
+          <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+        </svg>
+        Tender in progress
+      </span>
         <span class="text-ink-gray-3">·</span>
         <span class="text-ink-gray-5">Currently setting up the subcontract for tender.</span>
       </div>
@@ -160,11 +171,11 @@
             >
               <div
                 class="size-8 rounded-full flex items-center justify-center text-[13px] font-bold shrink-0"
-                :class="i < stepIdx ? 'bg-ink-green-3 text-white' : i === stepIdx ? 'bg-ink-blueprint-4 text-white' : 'bg-surface-gray-2 text-ink-gray-4 border border-outline-gray-3'"
+                :class="i < stepIdx ? 'bg-surface-green-3 text-white' : i === stepIdx ? 'bg-surface-blueprint-5 text-white' : 'bg-surface-gray-2 text-ink-gray-4 border border-outline-gray-3'"
               >{{ i < stepIdx ? '✓' : i + 1 }}</div>
               <p class="text-[11.5px] font-semibold m-0 text-center" :class="i === stepIdx ? 'text-ink-blueprint-4' : i < stepIdx ? 'text-ink-gray-8' : 'text-ink-gray-4'" style="font-family:var(--font-body)">{{ step.label }}</p>
             </button>
-            <div v-if="i < stepperSteps.length - 1" class="h-[2px] flex-1 mb-5 min-w-[16px]" :class="i < stepIdx ? 'bg-ink-green-3' : 'bg-outline-gray-2'" />
+            <div v-if="i < stepperSteps.length - 1" class="h-[2px] flex-1 mb-5 min-w-[16px]" :class="i < stepIdx ? 'bg-surface-green-3' : 'bg-surface-gray-3'" />
           </template>
         </div>
       </div>
@@ -317,7 +328,7 @@
                 <td class="px-3 py-2.5">
                   <span
                     class="inline-flex items-center justify-center size-[18px] rounded-md text-[11px] font-bold"
-                    :class="b.checked ? 'bg-ink-blueprint-4 text-white' : 'border border-outline-gray-3'"
+                    :class="b.checked ? 'bg-surface-blueprint-4 text-white' : 'border border-outline-gray-3'"
                   >{{ b.checked ? '✓' : '' }}</span>
                 </td>
                 <td class="px-3 py-2.5">
@@ -344,7 +355,12 @@
         </div>
         <div class="mt-3 rounded-lg bg-surface-green-1 px-3.5 py-2.5 flex items-center justify-between gap-3 flex-wrap text-[11.5px] text-ink-green-3" style="font-family:var(--font-body)">
           <span><strong>4 bidders selected.</strong> Minimum 3 required — ready.</span>
-          <span>✦ Kore: shortlist diversity OK · 1 low-rated bidder dropped</span>
+          <span class="flex items-center gap-1.5">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" class="shrink-0 text-ink-green-3">
+            <path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/>
+          </svg>
+          Kore: shortlist diversity OK · 1 low-rated bidder dropped
+        </span>
         </div>
       </div>
 
@@ -369,11 +385,17 @@
             @click="prevStep"
           >← Back</button>
           <button
-            type="button"
-            class="px-3.5 py-2 rounded-lg bg-ink-blueprint-4 text-white text-[12.5px] font-semibold hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-outline-blueprint-2"
-            style="font-family:var(--font-body)"
-            @click="nextStep"
-          >{{ isLastStep ? '✉ Lock for tender →' : 'Next →' }}</button>
+        type="button"
+        class="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-surface-blueprint-5 text-white text-[12.5px] font-semibold hover:bg-surface-blueprint-6 focus:outline-none focus-visible:ring-2 focus-visible:ring-outline-blueprint-2"
+        style="font-family:var(--font-body)"
+        @click="nextStep"
+      >
+        <svg v-if="isLastStep" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+        </svg>
+        {{ isLastStep ? 'Lock for tender' : 'Next →' }}
+      </button>
         </div>
       </div>
     </template>
@@ -540,7 +562,7 @@
       <!-- Approval row -->
       <div class="ik-card rounded-xl border border-outline-gray-2 bg-surface-white p-5">
         <div class="flex items-start gap-3.5">
-          <div class="size-9 rounded-full bg-ink-green-3 text-white flex items-center justify-center text-[16px] font-bold shrink-0">✓</div>
+          <div class="size-9 rounded-full bg-surface-green-3 text-white flex items-center justify-center text-[16px] font-bold shrink-0">✓</div>
           <div>
             <p class="text-[13.5px] font-semibold text-ink-gray-8 m-0" style="font-family:var(--font-body)">Award approved · Skyglaz Industries at AED 2,368,600</p>
             <p class="text-[11.5px] text-ink-gray-5 m-0 mt-1" style="font-family:var(--font-body)">Approved by Tarek Al-Mansouri (PD) · 21 May 2026 14:32</p>
@@ -571,7 +593,7 @@
           <div v-for="item in checklistItems" :key="item.name" class="rounded-lg bg-surface-gray-1 px-3.5 py-3 flex items-center gap-3.5 flex-wrap sm:flex-nowrap">
             <div
               class="size-7 rounded-full flex items-center justify-center text-[13px] shrink-0"
-              :class="item.state === 'done' ? 'bg-ink-green-3 text-white' : item.state === 'progress' ? 'bg-surface-amber-1 text-ink-amber-3' : 'bg-surface-gray-2 text-ink-gray-4'"
+              :class="item.state === 'done' ? 'bg-surafce-green-3 text-white' : item.state === 'progress' ? 'bg-surface-amber-1 text-ink-amber-3' : 'bg-surface-gray-2 text-ink-gray-4'"
             >{{ item.state === 'done' ? '✓' : item.state === 'progress' ? '⏳' : '○' }}</div>
             <div class="flex-1 min-w-[180px]">
               <p class="text-[12.5px] font-semibold text-ink-gray-8 m-0" style="font-family:var(--font-body)">{{ item.name }}</p>
@@ -869,9 +891,9 @@ const activity: ActivityRow[] = [
 ]
 
 function dotClass(dot: ActivityRow['dot']) {
-  if (dot === 'active') return 'bg-ink-green-3'
-  if (dot === 'info') return 'bg-ink-blueprint-4'
-  return 'bg-ink-gray-4'
+  if (dot === 'active') return 'bg-surface-green-3'
+  if (dot === 'info') return 'bg-surface-blueprint-4'
+  return 'bg-surface-gray-4'
 }
 </script>
 

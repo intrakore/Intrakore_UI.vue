@@ -23,19 +23,21 @@ const props = withDefaults(defineProps<{
 })
 
 const toneClasses = computed(() => ({
-  green: 'bg-surface-green-1 text-ink-green-3',
+  green: 'bg-surface-green-2 text-ink-green-3',
   amber: 'bg-surface-amber-1 text-ink-amber-3',
   red: 'bg-surface-red-1 text-ink-red-3',
   gray: 'bg-surface-gray-2 text-ink-gray-6',
   blueprint: 'bg-surface-blueprint-1 text-ink-blueprint-4',
+  clearing: 'bg-surface-clearing-2 text-ink-clearing-3',
 }[props.tone]))
 
 const dotColorMap = {
-  green: 'bg-ink-green-3',
-  amber: 'bg-ink-amber-3',
-  red: 'bg-ink-red-3',
-  gray: 'bg-ink-gray-4',
-  blueprint: 'bg-ink-blueprint-3',
+  green: 'bg-surface-green-3',
+  amber: 'bg-surface-amber-2',
+  red: 'bg-surface-red-4',
+  gray: 'bg-surface-gray-3',
+  blueprint: 'bg-surface-blueprint-5',
+  clearing: 'bg-surface-clearing-3',
 }
 const dotClasses = computed(() => dotColorMap[props.dotTone ?? props.tone])
 </script>

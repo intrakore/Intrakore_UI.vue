@@ -11,46 +11,72 @@
       <p class="text-[14px] leading-[1.15] text-ink-gray-6 tracking-[0.28px] m-0 mt-1" style="font-family:var(--font-body); font-weight:350;">
         Outbound to client — main contract valuations, variation orders, contract value tracking.
       </p>
-      <div class="flex items-center gap-2 text-[12px] text-ink-gray-6 flex-wrap mt-3" style="font-family:var(--font-body)">
-        <span>Main contract AED 30.0M</span>
-        <span class="text-ink-gray-3">·</span>
-        <span>AED 9.4M certified</span>
-        <span class="text-ink-gray-3">·</span>
-        <span>AED 5.8M paid</span>
-        <span class="text-ink-gray-3">·</span>
-        <span class="text-ink-amber-3 font-semibold">AED 3.6M outstanding · IPC-005 overdue</span>
-        <span class="text-ink-gray-3">·</span>
-        <span class="text-ink-amber-3 font-semibold">IPC-007 draft due in 4 days</span>
-      </div>
+      <div class="flex gap-2 items-center mt-3 flex-wrap">
+      <span class="inline-flex items-center gap-2 bg-surface-blueprint-2 rounded-full px-2 py-[4.5px] text-[12px] font-medium text-ink-blueprint-4 tracking-[0.24px]" style="font-family:var(--font-body)">
+        Main contract AED 30.0M
+      </span>
+      <span class="inline-flex items-center gap-2 bg-surface-gray-2 rounded-full px-2 py-[4.5px] text-[12px] font-medium text-ink-gray-6 tracking-[0.24px]" style="font-family:var(--font-body)">
+        AED 9.4M certified | AED 5.8M paid
+      </span>
+      <span class="inline-flex items-center gap-2 bg-surface-amber-1 rounded-full px-2 py-[4.5px] text-[12px] font-medium text-ink-amber-3 tracking-[0.24px]" style="font-family:var(--font-body)">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+          <path d="M5.134 1.93a1 1 0 0 1 1.732 0l4.33 7.5A1 1 0 0 1 10.33 11H1.67a1 1 0 0 1-.866-1.5l4.33-7.5Z" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round"/>
+          <line x1="6" y1="5" x2="6" y2="7.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
+          <circle cx="6" cy="9.25" r="0.55" fill="currentColor"/>
+        </svg>
+        AED 3.6M outstanding | IPC-005 overdue | IPC-007 draft due in 4 days
+      </span>
+    </div>
     </div>
 
     <!-- Summary band -->
     <CommercialJourneySummary :items="summaryItems" />
 
     <!-- Kore banner -->
-    <div class="rounded-lg border-l-[3px] border-outline-amber-3 bg-surface-amber-1 px-4 py-3 flex items-start gap-3 text-[12px] text-ink-gray-7" style="font-family:var(--font-body)">
-      <span class="text-[16px] text-ink-amber-3 shrink-0">✦</span>
+    <div class="rounded-lg border-outline-amber-3 bg-surface-amber-1 px-4 py-3 flex items-start gap-3 text-[12px] text-ink-gray-7" style="font-family:var(--font-body)">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" class="shrink-0 mt-0.5 text-ink-amber-3">
+        <path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/>
+      </svg>
       <span><strong class="text-ink-gray-8">Kore:</strong> IPC-006 paid 38 days after certification — beyond 30-day contract terms. Consider raising with client before IPC-007 to protect cash flow.</span>
     </div>
 
     <!-- Sub-journey cards -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
       <CommercialJourneyCard
-        icon="⟲"
         title="Variation orders"
-        meta="6 in progress · 3 approved · 1 rejected · 10 total"
+        meta="6 in progress | 3 approved | 1 rejected | 10 total"
         meta-tone="amber"
         sub="Changes to main contract scope or value. Price, route for CM/Director sign-off, submit to client."
         @click="showScreen('vo-register')"
-      />
+      >
+        <template #icon>
+          <div class="size-10 rounded-xl bg-surface-blueprint-2 text-ink-blueprint-4 flex items-center justify-center shrink-0">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+              <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+            </svg>
+          </div>
+        </template>
+      </CommercialJourneyCard>
       <CommercialJourneyCard
-        icon="↑"
-        title="Main contract IPCs"
-        meta="IPC-007 due in 4 days"
-        meta-tone="amber"
-        sub="Outbound monthly application for payment. Compile work done, variations, retention. Submit to client."
-        @click="showScreen('client-ipc')"
-      />
+      title="Main contract IPCs"
+      meta="IPC-007 due in 4 days"
+      meta-tone="amber"
+      sub="Outbound monthly application for payment. Compile work done, variations, retention. Submit to client."
+      @click="showScreen('client-ipc')"
+    >
+      <template #icon>
+        <div class="size-10 rounded-xl bg-surface-blueprint-2 text-ink-blueprint-4 flex items-center justify-center shrink-0">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/>
+            <polyline points="10 9 9 9 8 9"/>
+          </svg>
+        </div>
+      </template>
+    </CommercialJourneyCard>
     </div>
 
     <!-- Project SOA -->
@@ -245,9 +271,16 @@ const ipcRows: IpcRow[] = [
     0px 2px 1.5px rgba(0, 0, 0, 0.16);
 }
 [data-theme='dark'] .ik-card {
-  background-color: var(--surface-gray-2);
-  border-color: var(--outline-gray-3);
+  background-color: var(--surface-gray-1);
+  border-color: var(--outline-gray-2);
 }
 .ik-card-row:hover { background-color: var(--surface-blueprint-1); }
 [data-theme='dark'] .ik-card-row:hover { background-color: var(--surface-blueprint-2); }
+[data-theme='dark'] .ik-hero-card {
+  background-image: linear-gradient(
+    79.62deg,
+    rgba(10, 10, 30, 0.95) 65.76%,
+    rgba(0, 15, 204, 0.60) 98.33%
+  ) !important;
+}
 </style>

@@ -41,13 +41,21 @@
         <button
           v-for="chip in chips" :key="chip.key"
           type="button"
-          class="inline-flex items-center gap-4 px-3 py-1.5 rounded-lg text-[12.5px] font-medium border transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-outline-blueprint-2"
+          class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-[12.5px] font-semibold border transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-outline-blueprint-2"
           :class="filter === chip.key
             ? 'bg-surface-blueprint-5 border-surface-blueprint-5 text-white'
             : 'bg-surface-white border-outline-gray-2 text-ink-gray-7 hover:border-outline-blueprint-3'"
           style="font-family:var(--font-body)"
           @click="filter = chip.key"
         >
+        <span
+            v-if="chip.key === 'live'"
+            class="size-2 rounded-full bg-surface-green-3 shrink-0"
+          />
+          <span
+          v-else-if="chip.key === 'closing'"
+          class="size-2 rounded-full bg-surface-blueprint-4 shrink-0"
+        />
           {{ chip.label }}
           <span
             class="inline-flex items-center justify-center min-w-[18px] h-[18px] px-1 rounded-full text-[10.5px] font-semibold"
@@ -61,15 +69,15 @@
       <div class="flex items-center gap-1 rounded-md border border-outline-gray-2 bg-surface-white p-0.5">
         <button
           type="button"
-          class="px-3 py-1.5 rounded text-[12.5px] font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-outline-blueprint-2"
-          :class="view === 'cards' ? 'bg-surface-blueprint-1 text-ink-blueprint-4' : 'text-ink-gray-6 hover:text-ink-blueprint-4'"
+          class="px-3 py-1.5 rounded text-[12.5px] font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-outline-blueprint-2"
+          :class="view === 'cards' ? 'bg-surface-blueprint-2 text-ink-blueprint-4' : 'text-ink-gray-6 hover:text-ink-blueprint-4'"
           style="font-family:var(--font-body)"
           @click="view = 'cards'"
         >⊞ Cards</button>
         <button
           type="button"
-          class="px-3 py-1.5 rounded text-[12.5px] font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-outline-blueprint-2"
-          :class="view === 'table' ? 'bg-surface-blueprint-1 text-ink-blueprint-4' : 'text-ink-gray-6 hover:text-ink-blueprint-4'"
+          class="px-3 py-1.5 rounded text-[12.5px] font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-outline-blueprint-2"
+          :class="view === 'table' ? 'bg-surface-blueprint-2 text-ink-blueprint-4' : 'text-ink-gray-6 hover:text-ink-blueprint-4'"
           style="font-family:var(--font-body)"
           @click="view = 'table'"
         >▤ Table</button>
@@ -77,28 +85,33 @@
     </div>
 
     <!-- Card grid -->
-    <div v-if="view === 'cards'" class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+    <div v-if="view === 'cards'" class="grid grid-cols-1 lg:grid-cols-2 gap-8">
       <div
         v-for="p in filteredProjects" :key="p.id"
-        class="ik-card rounded-xl border border-outline-gray-2 bg-surface-white flex flex-col gap-4 px-5 pt-6 pb-6 w-full cursor-pointer transition-colors hover:border-outline-blueprint-3"
+        class="ik-card rounded-xl border border-outline-gray-2 bg-surface-gray-1 flex flex-col gap-4 px-5 pt-6 pb-6 w-full cursor-pointer transition-colors hover:border-outline-blueprint-3"
         @click="openProject(p)"
       >
         <!-- head -->
-        <div class="flex items-start justify-between gap-3">
+        <div class="flex items-start justify-between gap-4">
           <div>
-            <p class="text-[16px] font-medium leading-6 text-ink-gray-8 m-0" style="font-family:var(--font-body)">{{ p.name }}</p>
-            <p class="text-[12px] leading-5 text-ink-gray-5 m-0" style="font-family:var(--font-body)">{{ p.id }}</p>
+            <p class="text-[16px] font-semibold leading-6 text-ink-gray-8 m-0" style="font-family:var(--font-body)">{{ p.name }}</p>
+            <p class="text-[12px] leading-5 text-ink-gray-6 m-0" style="font-family:var(--font-body)">{{ p.id }}</p>
           </div>
-          <CommercialStatusPill :label="p.statusLabel" tone="green" :pulse="p.status === 'live'" :dot-tone="p.status === 'live' ? 'green' : 'gray'" />
+          <CommercialStatusPill 
+          :label="p.statusLabel" 
+          :tone="p.status === 'live' ? 'green' : 'blueprint'" 
+          :pulse="p.status === 'live'" 
+          :dot-tone="p.status === 'live' ? 'green' : 'blueprint'" 
+        />
         </div>
 
         <!-- meta chips -->
         <div class="flex items-center gap-2 flex-wrap">
-          <span class="px-2.5 py-1 rounded-md bg-surface-gray-2 text-[11px] font-semibold text-ink-gray-7" style="font-family:var(--font-body)">Month {{ p.month }} of {{ p.totalMonths }}</span>
-          <span class="px-2.5 py-1 rounded-md bg-surface-gray-2 text-[11px] font-semibold text-ink-gray-7" style="font-family:var(--font-body)">{{ p.tier }}</span>
+          <span class="px-2.5 py-1 rounded-md bg-surface-gray-2 text-[11px] font-medium text-ink-gray-7" style="font-family:var(--font-body)">Month {{ p.month }} of {{ p.totalMonths }}</span>
+          <span class="px-2.5 py-1 rounded-md bg-surface-gray-2 text-[11px] font-medium text-ink-gray-7" style="font-family:var(--font-body)">{{ p.tier }}</span>
           <span
-            class="px-2.5 py-1 rounded-md text-[11px] font-semibold"
-            :class="p.marginClass === 'green' ? 'bg-surface-green-1 text-ink-green-3' : 'bg-surface-amber-1 text-ink-amber-3'"
+            class="px-2.5 py-1 rounded-md text-[12px] font-medium"
+            :class="p.marginClass === 'green' ? 'bg-surface-green-2 text-ink-green-3' : 'bg-surface-amber-1 text-ink-amber-3'"
             style="font-family:var(--font-body)"
           >Margin {{ p.marginPct }}%</span>
         </div>
@@ -108,41 +121,47 @@
           <div class="h-1.5 rounded-full bg-surface-gray-2 overflow-hidden">
             <div
               class="h-full rounded-full"
-              :class="p.progressClass === 'green' ? 'bg-surface-green-3' : p.progressClass === 'amber' ? 'bg-surface-amber-3' : 'bg-surface-blueprint-3'"
+              :class="p.progressClass === 'green' ? 'bg-surface-green-3' : p.progressClass === 'amber' ? 'bg-surface-amber-2' : 'bg-surface-blueprint-5'"
               :style="{ width: p.progressPct + '%' }"
             />
           </div>
-          <div class="flex items-center justify-between text-[11.5px] text-ink-gray-5" style="font-family:var(--font-body)">
+          <div class="flex items-center justify-between text-[12px] text-ink-gray-6" style="font-family:var(--font-body)">
             <span>{{ p.progressPct }}% complete</span>
             <span>{{ p.status === 'closing' ? 'Final account in progress' : (p.totalMonths - p.month) + ' months remaining' }}</span>
           </div>
         </div>
 
         <!-- kpi pair -->
-        <div class="grid grid-cols-2 gap-4 pt-3 border-t border-outline-gray-2">
-          <div>
-            <p class="text-[10.5px] font-semibold uppercase tracking-[0.07em] text-ink-gray-5 m-0 mb-1.5" style="font-family:var(--font-body)">Contract value</p>
+       <div class="flex gap-8">
+          <!-- Contract Value -->
+          <div class="flex-1 flex-col items-center justify-center p-6 rounded-lg border border-outline-gray-2 bg-surface-gray-2 text-center">
+            <p class="text-[14px] font-semibold uppercase tracking-[0.04em] text-ink-gray-8 m-0 mb-1.5" style="font-family:var(--font-body)">Contract value</p>
             <p class="text-[16px] font-semibold text-ink-gray-9 m-0" style="font-family:var(--font-body)">{{ p.contractValue }}</p>
-            <p class="text-[11.5px] text-ink-gray-5 m-0 mt-0.5" style="font-family:var(--font-body)">Certified {{ p.certified }}</p>
+            <p class="text-[12px] text-ink-gray-6 m-0 mt-0.5" style="font-family:var(--font-body)">Certified {{ p.certified }}</p>
           </div>
-          <div>
-            <p class="text-[10.5px] font-semibold uppercase tracking-[0.07em] text-ink-gray-5 m-0 mb-1.5" style="font-family:var(--font-body)">Forecasted cost</p>
+
+          <!-- Forecasted Cost -->
+          <div class="flex-1 flex-col items-center justify-center p-6 rounded-lg border border-outline-gray-2 bg-surface-gray-2 text-center">
+            <p class="text-[14px] font-semibold uppercase tracking-[0.04em] text-ink-gray-8 m-0 mb-1.5" style="font-family:var(--font-body)">Forecasted cost</p>
             <p class="text-[16px] font-semibold text-ink-gray-9 m-0" style="font-family:var(--font-body)">{{ p.fcc }}</p>
             <p
-              class="text-[11.5px] m-0 mt-0.5 font-semibold"
+              class="text-[12px] m-0 mt-0.5 font-semibold"
               :class="p.fccSubClass === 'green' ? 'text-ink-green-3' : 'text-ink-amber-3'"
               style="font-family:var(--font-body)"
             >{{ p.fccSub }}</p>
+            
           </div>
         </div>
 
         <!-- kore footer -->
         <div
           class="flex items-start gap-2 pt-3 border-t border-outline-gray-2 text-[12px] leading-[1.4]"
-          :class="p.koreClass === 'warn' ? 'text-ink-amber-3' : 'text-ink-gray-5'"
+          :class="p.koreClass === 'warn' ? 'text-ink-amber-3' : 'text-ink-gray-6'"
           style="font-family:var(--font-body)"
         >
-          <span class="shrink-0">✦</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" class="shrink-0 mt-0.5">
+          <path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/>
+        </svg>
           <span>{{ p.kore }}</span>
         </div>
       </div>
@@ -167,7 +186,12 @@
               <p class="text-[12px] font-medium leading-[1.15] text-ink-gray-6 tracking-[0.24px] truncate m-0" style="font-family:var(--font-body)">{{ p.id }}</p>
             </td>
             <td class="px-5 py-3">
-              <CommercialStatusPill :label="p.statusLabel" tone="green" :pulse="p.status === 'live'" :dot-tone="p.status === 'live' ? 'green' : 'gray'" />
+             <CommercialStatusPill 
+              :label="p.statusLabel" 
+              :tone="p.status === 'live' ? 'green' : 'blueprint'" 
+              :pulse="p.status === 'live'" 
+              :dot-tone="p.status === 'live' ? 'green' : 'blueprint'" 
+            />
             </td>
             <td class="px-5 py-3 text-[13px] text-ink-gray-7 whitespace-nowrap" style="font-family:var(--font-body)">Month {{ p.month }} of {{ p.totalMonths }} · {{ p.progressPct }}%</td>
             <td class="px-5 py-3 text-right text-[13px] text-ink-gray-8 whitespace-nowrap" style="font-family:var(--font-body)">{{ p.contractValue }}</td>
@@ -302,9 +326,17 @@ function openProject(p: Project) {
     0px 2px 1.5px rgba(0, 0, 0, 0.16);
 }
 [data-theme='dark'] .ik-card {
-  background-color: var(--surface-gray-2);
-  border-color: var(--outline-gray-3);
+  background-color: var(--surface-gray-1);
+  border-color: var(--outline-gray-2);
 }
 .ik-card-row:hover { background-color: var(--surface-blueprint-1); }
 [data-theme='dark'] .ik-card-row:hover { background-color: var(--surface-blueprint-2); }
+[data-theme='dark'] .ik-hero-card {
+  background-image: linear-gradient(
+    79.62deg,
+    rgba(10, 10, 30, 0.95) 65.76%,
+    rgba(0, 15, 204, 0.60) 98.33%
+  ) !important;
+}
 </style>
+

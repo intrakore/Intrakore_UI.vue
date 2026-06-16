@@ -12,15 +12,22 @@
         <p class="text-[14px] leading-[1.15] text-ink-gray-6 tracking-[0.28px] m-0 mt-1" style="font-family:var(--font-body); font-weight:350;">
           Compile this month's application to the client. Enter cumulative % complete per BOQ line, add approved variation orders, apply retention.
         </p>
-        <div class="flex items-center gap-2 text-[12px] text-ink-gray-6 flex-wrap mt-3" style="font-family:var(--font-body)">
-          <span>INT-26-014 · Main contract</span>
-          <span class="text-ink-gray-3">·</span>
-          <span>Revised contract AED 30.0M</span>
-          <span class="text-ink-gray-3">·</span>
-          <span>AED 9.4M certified to date (IPC-001→006)</span>
-          <span class="text-ink-gray-3">·</span>
-          <span class="text-ink-amber-3 font-semibold">Draft · due to client in 4 days</span>
-        </div>
+        <div class="flex gap-2 items-center mt-3 flex-wrap">
+        <span class="inline-flex items-center gap-2 bg-surface-blueprint-2 rounded-full px-2 py-[4.5px] text-[12px] font-medium text-ink-blueprint-4 tracking-[0.24px]" style="font-family:var(--font-body)">
+          INT-26-014   Main contract
+        </span>
+        <span class="inline-flex items-center gap-2 bg-surface-gray-2 rounded-full px-2 py-[4.5px] text-[12px] font-medium text-ink-gray-6 tracking-[0.24px]" style="font-family:var(--font-body)">
+          Revised contract AED 30.0M | AED 9.4M certified to date (IPC-001→006)
+        </span>
+        <span class="inline-flex items-center gap-2 bg-surface-amber-1 rounded-full px-2 py-[4.5px] text-[12px] font-medium text-ink-amber-3 tracking-[0.24px]" style="font-family:var(--font-body)">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+            <path d="M5.134 1.93a1 1 0 0 1 1.732 0l4.33 7.5A1 1 0 0 1 10.33 11H1.67a1 1 0 0 1-.866-1.5l4.33-7.5Z" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round"/>
+            <line x1="6" y1="5" x2="6" y2="7.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
+            <circle cx="6" cy="9.25" r="0.55" fill="currentColor"/>
+          </svg>
+          Draft  due to client in 4 days
+        </span>
+      </div>
       </div>
       <button
         type="button"
@@ -31,8 +38,10 @@
     </div>
 
     <!-- Kore banner -->
-    <div class="rounded-lg border-l-[3px] border-outline-amber-3 bg-surface-amber-1 px-4 py-3 flex items-start gap-3 text-[12px] text-ink-gray-7" style="font-family:var(--font-body)">
-      <span class="text-[16px] text-ink-amber-3 shrink-0">✦</span>
+    <div class="rounded-lg border-outline-amber-3 bg-surface-amber-1 px-4 py-3 flex items-start gap-3 text-[12px] text-ink-gray-7" style="font-family:var(--font-body)">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" class="shrink-0 mt-0.5 text-ink-amber-3">
+        <path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/>
+      </svg>
       <span><strong class="text-ink-gray-8">Kore:</strong> This draft takes cumulative certification to 38.2% against 31.3% last cycle — a 6.9% jump, the largest single-cycle movement on this contract. Superstructure (Bill 3) drives it, led by post-tensioned slabs line 3.2. Verify site progress supports the claim before submission.</span>
     </div>
 
@@ -143,12 +152,18 @@
       </div>
       <p class="text-[12.5px] text-ink-gray-5 m-0 mb-3" style="font-family:var(--font-body)">Routes to James Chen (CM) for review, then Tarek Al-Mansouri (PD) for approval.</p>
       <div class="flex items-center gap-2.5 flex-wrap">
-        <button
-          type="button"
-          class="px-4 py-2 rounded-lg bg-ink-blueprint-4 text-white text-[12.5px] font-semibold hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-outline-blueprint-2"
-          style="font-family:var(--font-body)"
-          @click="toast.info('Submit for CM review — not yet built in this prototype.')"
-        >Submit for CM review →</button>
+       <button
+        type="button"
+        class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-surface-blueprint-5 text-white text-[12.5px] font-semibold hover:bg-surface-blueprint-6 focus:outline-none focus-visible:ring-2 focus-visible:ring-outline-blueprint-2"
+        style="font-family:var(--font-body)"
+        @click="toast.info('Submit for CM review — not yet built in this prototype.')"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 11 12 14 22 4"/>
+          <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+        </svg>
+        Submit for CM review
+      </button>
         <button
           type="button"
           class="px-4 py-2 rounded-lg border border-outline-gray-3 bg-surface-white text-[12.5px] font-medium text-ink-gray-7 hover:border-outline-blueprint-3 hover:text-ink-blueprint-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-outline-blueprint-2"
@@ -261,15 +276,15 @@ const calcRows: CalcRow[] = [
     0px 2px 1.5px rgba(0, 0, 0, 0.16);
 }
 [data-theme='dark'] .ik-card {
-  background-color: var(--surface-gray-2);
-  border-color: var(--outline-gray-3);
+  background-color: var(--surface-gray-3);
+  border-color: var(--outline-gray-2);
 }
 .ik-select {
   font-family: var(--font-body);
   font-size: 12.5px;
   color: var(--ink-gray-7);
   background-color: var(--surface-white);
-  border: 1px solid var(--outline-gray-3);
+  border: 1px solid var(--outline-gray-2);
   border-radius: 8px;
   padding: 6px 10px;
 }
@@ -284,5 +299,26 @@ const calcRows: CalcRow[] = [
   background-color: var(--surface-gray-3);
   border-color: var(--outline-gray-4);
   color: var(--ink-gray-7);
+}
+</style>
+<style scoped>
+.ik-card {
+  box-shadow:
+    0px 0px 0.5px rgba(0, 0, 0, 0.12),
+    0px 0.5px 1px rgba(0, 0, 0, 0.15),
+    0px 2px 1.5px rgba(0, 0, 0, 0.16);
+}
+[data-theme='dark'] .ik-card {
+  background-color: var(--surface-gray-1);
+  border-color: var(--outline-gray-2);
+}
+.ik-card-row:hover { background-color: var(--surface-blueprint-1); }
+[data-theme='dark'] .ik-card-row:hover { background-color: var(--surface-blueprint-2); }
+[data-theme='dark'] .ik-hero-card {
+  background-image: linear-gradient(
+    79.62deg,
+    rgba(10, 10, 30, 0.95) 65.76%,
+    rgba(0, 15, 204, 0.60) 98.33%
+  ) !important;
 }
 </style>

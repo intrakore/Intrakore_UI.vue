@@ -10,12 +10,16 @@
         <h1 class="text-[28px] font-medium leading-[1.2] text-ink-gray-8 m-0" style="font-family:var(--font-display)">VO-006-R2 · MEP shaft relocation L4–L8</h1>
         <p class="text-[13px] font-semibold text-ink-blueprint-4 m-0 mt-1" style="font-family:var(--font-body)">Variation order · Skyline Business Bay · INT-26-014</p>
         <div class="flex items-center gap-2 text-[12px] text-ink-gray-6 flex-wrap mt-3" style="font-family:var(--font-body)">
-          <CommercialStatusPill label="Under negotiation" tone="amber" dot-tone="gray" />
-          <span class="text-ink-gray-3">·</span>
-          <span>Currently Rev 2 · AED 145,000 · margin 8.2% · EOT +3 days</span>
-          <span class="text-ink-gray-3">·</span>
-          <span>Holding with client (Engineer) · 7 days</span>
-        </div>
+         <div class="flex gap-2 items-center mt-3 flex-wrap">
+        <CommercialStatusPill label="Under negotiation" tone="amber" dot-tone="gray" />
+        <span class="inline-flex items-center gap-2 bg-surface-gray-2 rounded-full px-2 py-[4.5px] text-[12px] font-medium text-ink-gray-6 tracking-[0.24px]" style="font-family:var(--font-body)">
+          Currently Rev 2 · AED 145,000 · margin 8.2% · EOT +3 days
+        </span>
+        <span class="inline-flex items-center gap-2 bg-surface-gray-2 rounded-full px-2 py-[4.5px] text-[12px] font-medium text-ink-gray-6 tracking-[0.24px]" style="font-family:var(--font-body)">
+          Holding with client (Engineer) · 7 days
+        </span>
+      </div>
+      </div>
       </div>
       <button
         type="button"
@@ -123,7 +127,7 @@
         </div>
         <button
           type="button"
-          class="px-3.5 py-2 rounded-lg bg-ink-blueprint-4 text-white text-[12px] font-semibold hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-outline-blueprint-2"
+          class="px-3.5 py-2 rounded-lg bg-surface-blueprint-5 text-white text-[12px] font-semibold hover:bg-surface-blueprint-6 focus:outline-none focus-visible:ring-2 focus-visible:ring-outline-blueprint-2"
           style="font-family:var(--font-body)"
           @click="toast.info('Open pricing — not yet built in this prototype.')"
         >Open pricing →</button>
@@ -180,7 +184,7 @@
       </div>
       <div class="flex flex-col gap-4">
         <div v-for="(m, i) in activityMsgs" :key="i" class="flex gap-3" :class="m.side === 'approval' ? 'justify-end' : 'justify-start'">
-          <div class="size-9 rounded-full bg-ink-blueprint-4 text-white flex items-center justify-center text-[12px] font-bold shrink-0" style="font-family:var(--font-body)">{{ m.init }}</div>
+          <div class="size-9 rounded-full bg-surface-blueprint-4 text-white flex items-center justify-center text-[12px] font-bold shrink-0" style="font-family:var(--font-body)">{{ m.init }}</div>
           <div class="max-w-[70%] rounded-lg p-3.5" :class="m.side === 'approval' ? 'bg-surface-green-1' : 'bg-surface-gray-1'">
             <div class="flex items-baseline justify-between gap-2 flex-wrap mb-2">
               <div>
@@ -215,8 +219,8 @@
         <button type="button" class="px-3.5 py-2 rounded-lg border border-outline-gray-3 bg-surface-white text-[12.5px] font-medium text-ink-gray-7 hover:border-outline-blueprint-3 hover:text-ink-blueprint-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-outline-blueprint-2" style="font-family:var(--font-body)" @click="toast.info('Mark withdrawn — not yet built in this prototype.')">Mark withdrawn</button>
         <button type="button" class="px-3.5 py-2 rounded-lg border border-outline-gray-3 bg-surface-white text-[12.5px] font-medium text-ink-gray-7 hover:border-outline-blueprint-3 hover:text-ink-blueprint-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-outline-blueprint-2" style="font-family:var(--font-body)" @click="toast.info('Mark rejected — not yet built in this prototype.')">Mark rejected</button>
         <button type="button" class="px-3.5 py-2 rounded-lg border border-outline-gray-3 bg-surface-white text-[12.5px] font-medium text-ink-gray-7 hover:border-outline-blueprint-3 hover:text-ink-blueprint-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-outline-blueprint-2" style="font-family:var(--font-body)" @click="toast.info('Mark approved — not yet built in this prototype.')">Mark approved</button>
-        <button type="button" class="px-3.5 py-2 rounded-lg bg-ink-blueprint-4 text-white text-[12.5px] font-semibold hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-outline-blueprint-2" style="font-family:var(--font-body)" @click="toast.info('Create Rev 3 — not yet built in this prototype.')">+ Create Rev 3</button>
-      </div>
+        <button type="button" class="px-3.5 py-2 rounded-lg bg-surface-blueprint-5 text-white text-[12.5px] font-semibold hover:bg-surface-blueprint-6 focus:outline-none focus-visible:ring-2 focus-visible:ring-outline-blueprint-2" style="font-family:var(--font-body)" @click="toast.info('Create Rev 3 — not yet built in this prototype.')">+ Create Rev 3</button>. 
+    </div>
     </div>
 
   </div>
@@ -312,5 +316,14 @@ const activityMsgs: ActivityMsg[] = [
 [data-theme='dark'] .ik-card {
   background-color: var(--surface-gray-2);
   border-color: var(--outline-gray-3);
+}
+.ik-card-row:hover { background-color: var(--surface-blueprint-1); }
+[data-theme='dark'] .ik-card-row:hover { background-color: var(--surface-blueprint-2); }
+[data-theme='dark'] .ik-hero-card {
+  background-image: linear-gradient(
+    79.62deg,
+    rgba(10, 10, 30, 0.95) 65.76%,
+    rgba(0, 15, 204, 0.60) 98.33%
+  ) !important;
 }
 </style>

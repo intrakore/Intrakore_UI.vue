@@ -11,17 +11,25 @@
       <p class="text-[14px] leading-[1.15] text-ink-gray-6 tracking-[0.28px] m-0 mt-1" style="font-family:var(--font-body); font-weight:350;">
         Review and certify monthly claims from awarded subcontractors.
       </p>
-      <div class="flex items-center gap-2 text-[12px] text-ink-gray-6 flex-wrap mt-3" style="font-family:var(--font-body)">
-        <span>April 2026 cycle</span>
-        <span class="text-ink-gray-3">·</span>
-        <span>5 claims received</span>
-        <span class="text-ink-gray-3">·</span>
-        <span class="text-ink-amber-3 font-semibold">2 awaiting QS review</span>
-        <span class="text-ink-gray-3">·</span>
-        <span>2 certified, awaiting CM</span>
-        <span class="text-ink-gray-3">·</span>
-        <span class="text-ink-green-3 font-semibold">1 paid</span>
-      </div>
+      <div class="flex gap-2 items-center mt-3 flex-wrap">
+      <span class="inline-flex items-center gap-2 bg-surface-blueprint-2 rounded-full px-2 py-[4.5px] text-[12px] font-medium text-ink-blueprint-4 tracking-[0.24px]" style="font-family:var(--font-body)">
+        April 2026 cycle | 5 claims received
+      </span>
+      <span class="inline-flex items-center gap-2 bg-surface-gray-2 rounded-full px-2 py-[4.5px] text-[12px] font-medium text-ink-gray-6 tracking-[0.24px]" style="font-family:var(--font-body)">
+        2 certified | awaiting CM
+      </span>
+      <span class="inline-flex items-center gap-2 bg-surface-amber-1 rounded-full px-2 py-[4.5px] text-[12px] font-medium text-ink-amber-3 tracking-[0.24px]" style="font-family:var(--font-body)">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+          <path d="M5.134 1.93a1 1 0 0 1 1.732 0l4.33 7.5A1 1 0 0 1 10.33 11H1.67a1 1 0 0 1-.866-1.5l4.33-7.5Z" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round"/>
+          <line x1="6" y1="5" x2="6" y2="7.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
+          <circle cx="6" cy="9.25" r="0.55" fill="currentColor"/>
+        </svg>
+        2 awaiting QS review
+      </span>
+      <span class="inline-flex items-center gap-2 bg-surface-green-2 rounded-full px-2 py-[4.5px] text-[12px] font-medium text-ink-green-3 tracking-[0.24px]" style="font-family:var(--font-body)">
+        1 paid
+      </span>
+    </div>
     </div>
 
     <!-- Cycle strip -->
@@ -93,7 +101,12 @@
       </div>
       <div class="flex items-center justify-between gap-3 flex-wrap px-4 py-3 text-[11.5px] bg-surface-amber-1 text-ink-amber-3" style="font-family:var(--font-body)">
         <span><strong class="text-ink-amber-4">5 claims this cycle · AED 4,032,000 claimed.</strong> 2 still awaiting QS review · 1 mid-review · 2 routed for CM approval.</span>
-        <span>✦ Kore: Multitech IPA-MEP-04 — claim is 14% above planned curve. Review on priority.</span>
+        <span class="flex items-center gap-1.5">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" class="shrink-0 text-ink-amber-3">
+          <path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/>
+        </svg>
+        Kore: Multitech IPA-MEP-04 — claim is 14% above planned curve. Review on priority.
+      </span>
       </div>
     </div>
 
@@ -161,9 +174,7 @@ function openClaim(row: ClaimRow) {
   border-radius: 8px;
   padding: 6px 10px;
 }
-.ik-select:hover {
-  border-color: var(--outline-blueprint-3);
-}
+.ik-select:hover { border-color: var(--outline-blueprint-3); }
 .ik-select:focus-visible {
   outline: 2px solid var(--outline-blueprint-2);
   outline-offset: 1px;
@@ -172,5 +183,12 @@ function openClaim(row: ClaimRow) {
   background-color: var(--surface-gray-3);
   border-color: var(--outline-gray-4);
   color: var(--ink-gray-7);
+}
+[data-theme='dark'] .ik-hero-card {
+  background-image: linear-gradient(
+    79.62deg,
+    rgba(10, 10, 30, 0.95) 65.76%,
+    rgba(0, 15, 204, 0.60) 98.33%
+  ) !important;
 }
 </style>

@@ -12,24 +12,29 @@
         <p class="text-[14px] leading-[1.15] text-ink-gray-6 tracking-[0.28px] m-0 mt-1" style="font-family:var(--font-body); font-weight:350;">
           Track tender, award and pre-execution for every subcontracted package.
         </p>
-        <div class="flex items-center gap-2 text-[12px] text-ink-gray-6 flex-wrap mt-3" style="font-family:var(--font-body)">
-          <span>7 subcontracts</span>
-          <span class="text-ink-gray-3">·</span>
-          <span>5 awarded</span>
-          <span class="text-ink-gray-3">·</span>
-          <span>2 in tender</span>
-          <span class="text-ink-gray-3">·</span>
-          <span>AED 18.7M awarded</span>
-          <span class="text-ink-gray-3">·</span>
-          <span class="text-ink-amber-3 font-semibold">2 need action this week</span>
-        </div>
+        <div class="flex gap-2 items-center mt-3 flex-wrap">
+        <span class="inline-flex items-center gap-2 bg-surface-blueprint-2 rounded-full px-2 py-[4.5px] text-[12px] font-medium text-ink-blueprint-4 tracking-[0.24px]" style="font-family:var(--font-body)">
+          7 subcontracts | 5 awarded | 2 in tender
+        </span>
+        <span class="inline-flex items-center gap-2 bg-surface-gray-2 rounded-full px-2 py-[4.5px] text-[12px] font-medium text-ink-gray-6 tracking-[0.24px]" style="font-family:var(--font-body)">
+          AED 18.7M awarded
+        </span>
+        <span class="inline-flex items-center gap-2 bg-surface-amber-1 rounded-full px-2 py-[4.5px] text-[12px] font-medium text-ink-amber-3 tracking-[0.24px]" style="font-family:var(--font-body)">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+            <path d="M5.134 1.93a1 1 0 0 1 1.732 0l4.33 7.5A1 1 0 0 1 10.33 11H1.67a1 1 0 0 1-.866-1.5l4.33-7.5Z" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round"/>
+            <line x1="6" y1="5" x2="6" y2="7.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
+            <circle cx="6" cy="9.25" r="0.55" fill="currentColor"/>
+          </svg>
+          2 need action this week
+        </span>
+      </div>
       </div>
       <button
         type="button"
-        class="px-3.5 py-2 rounded-md bg-surface-blueprint-5 text-[12.5px] font-medium text-white hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-outline-blueprint-2 shrink-0"
+        class="px-4 py-2 rounded-md bg-surface-blueprint-5 text-[12.5px] font-medium text-white hover:bg-surface-blueprint-6 focus:outline-none focus-visible:ring-2 focus-visible:ring-outline-blueprint-2 shrink-0"
         style="font-family:var(--font-body)"
         @click="procure"
-      >+ Procure a package →</button>
+      >+ New package</button>
     </div>
 
     <!-- Tabs -->
@@ -72,7 +77,7 @@
         <tbody>
           <tr
             v-for="row in actionRows" :key="row.id"
-            class="ik-card-row border-b border-outline-gray-2 last:border-b-0"
+            class="ik-card-row border-b border-outline-gray-2 "
             :class="row.id === 'INT-26-014-SC-005' ? 'cursor-pointer' : ''"
             @click="row.id === 'INT-26-014-SC-005' && showScreen('pkg-detail')"
           >
@@ -88,9 +93,14 @@
         </tbody>
       </table>
       <div class="flex items-center justify-between gap-3 flex-wrap px-4 py-3 text-[11.5px] bg-surface-amber-1 text-ink-amber-3" style="font-family:var(--font-body)">
-        <span><strong>2 subcontracts in procurement need attention.</strong> Both are tenders closing this week.</span>
-        <span>✦ Kore: front-load PKG-005 bid comparison — 3 of 4 bids in.</span>
-      </div>
+      <span><strong>2 subcontracts in procurement need attention.</strong> Both are tenders closing this week.</span>
+      <span class="flex items-center gap-1.5">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" class="shrink-0 text-ink-amber-3">
+          <path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/>
+        </svg>
+        Kore: front-load PKG-005 bid comparison — 3 of 4 bids in.
+      </span>
+    </div>
     </div>
 
     <!-- Pane: In tender -->
@@ -228,9 +238,16 @@ function procure() {
     0px 2px 1.5px rgba(0, 0, 0, 0.16);
 }
 [data-theme='dark'] .ik-card {
-  background-color: var(--surface-gray-2);
-  border-color: var(--outline-gray-3);
+  background-color: var(--surface-gray-1);
+  border-color: var(--outline-gray-2);
 }
 .ik-card-row:hover { background-color: var(--surface-blueprint-1); }
 [data-theme='dark'] .ik-card-row:hover { background-color: var(--surface-blueprint-2); }
+[data-theme='dark'] .ik-hero-card {
+  background-image: linear-gradient(
+    79.62deg,
+    rgba(10, 10, 30, 0.95) 65.76%,
+    rgba(0, 15, 204, 0.60) 98.33%
+  ) !important;
+}
 </style>

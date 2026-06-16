@@ -12,26 +12,33 @@
         <p class="text-[14px] leading-[1.15] text-ink-gray-6 tracking-[0.28px] m-0 mt-1" style="font-family:var(--font-body); font-weight:350;">
           Track every variation to the main contract from draft through to approval.
         </p>
-        <div class="flex items-center gap-2 text-[12px] text-ink-gray-6 flex-wrap mt-3" style="font-family:var(--font-body)">
-          <span>INT-26-014 · Main contract</span>
-          <span class="text-ink-gray-3">·</span>
-          <span>Revised contract AED 30.0M</span>
-          <span class="text-ink-gray-3">·</span>
-          <span>10 VOs raised · 3 approved (+AED 400K)</span>
-          <span class="text-ink-gray-3">·</span>
-          <span class="text-ink-amber-3 font-semibold">2 awaiting CM action</span>
-        </div>
+        <div class="flex gap-2 items-center mt-3 flex-wrap">
+        <span class="inline-flex items-center gap-2 bg-surface-blueprint-2 rounded-full px-2 py-[4.5px] text-[12px] font-medium text-ink-blueprint-4 tracking-[0.24px]" style="font-family:var(--font-body)">
+          INT-26-014 Main contract
+        </span>
+        <span class="inline-flex items-center gap-2 bg-surface-gray-2 rounded-full px-2 py-[4.5px] text-[12px] font-medium text-ink-gray-6 tracking-[0.24px]" style="font-family:var(--font-body)">
+          Revised contract AED 30.0M | 10 VOs raised | 3 approved (+AED 400K)
+        </span>
+        <span class="inline-flex items-center gap-2 bg-surface-amber-1 rounded-full px-2 py-[4.5px] text-[12px] font-medium text-ink-amber-3 tracking-[0.24px]" style="font-family:var(--font-body)">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+            <path d="M5.134 1.93a1 1 0 0 1 1.732 0l4.33 7.5A1 1 0 0 1 10.33 11H1.67a1 1 0 0 1-.866-1.5l4.33-7.5Z" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round"/>
+            <line x1="6" y1="5" x2="6" y2="7.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
+            <circle cx="6" cy="9.25" r="0.55" fill="currentColor"/>
+          </svg>
+          2 awaiting CM action
+        </span>
+      </div>
       </div>
       <div class="flex items-center gap-2 shrink-0">
         <button
           type="button"
-          class="px-3.5 py-2 rounded-lg border border-outline-gray-3 bg-surface-white text-[12.5px] font-medium text-ink-gray-7 hover:border-outline-blueprint-3 hover:text-ink-blueprint-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-outline-blueprint-2"
+          class="px-3.5 py-2 rounded-lg border border-outline-gray-4 bg-surface-white text-[12.5px] font-medium text-ink-gray-7 hover:border-outline-blueprint-3 hover:text-ink-blueprint-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-outline-blueprint-2"
           style="font-family:var(--font-body)"
           @click="showScreen('client-journey')"
         >← Back to client journey</button>
         <button
           type="button"
-          class="px-3.5 py-2 rounded-lg bg-ink-blueprint-4 text-white text-[12.5px] font-semibold hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-outline-blueprint-2"
+          class="px-3.5 py-2 rounded-lg bg-surface-blueprint-5 text-white text-[12.5px] font-semibold hover:bg-surface-blueprint-6 focus:outline-none focus-visible:ring-2 focus-visible:ring-outline-blueprint-2"
           style="font-family:var(--font-body)"
           @click="toast.info('New variation order — not yet built in this prototype.')"
         >+ New variation order</button>
@@ -39,8 +46,10 @@
     </div>
 
     <!-- Kore banner -->
-    <div class="rounded-lg border-l-[3px] border-outline-amber-3 bg-surface-amber-1 px-4 py-3 flex items-start gap-3 text-[12px] text-ink-gray-7" style="font-family:var(--font-body)">
-      <span class="text-[16px] text-ink-amber-3 shrink-0">✦</span>
+    <div class="rounded-lg border-outline-amber-3 bg-surface-amber-1 px-4 py-3 flex items-start gap-3 text-[12px] text-ink-gray-7" style="font-family:var(--font-body)">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" class="shrink-0 mt-0.5 text-ink-amber-3">
+        <path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/>
+      </svg>
       <span><strong class="text-ink-gray-8">Kore:</strong> 6 of 10 VOs originated from Engineer's Instructions in the last 60 days. VO-007 (generator capacity) has been at "Quote submitted" for 18 days against the contractual 14-day client response — chase warranted.</span>
     </div>
 
@@ -253,5 +262,26 @@ function openVo(row: VoRow) {
   background-color: var(--surface-gray-3);
   border-color: var(--outline-gray-4);
   color: var(--ink-gray-7);
+}
+</style>
+<style scoped>
+.ik-card {
+  box-shadow:
+    0px 0px 0.5px rgba(0, 0, 0, 0.12),
+    0px 0.5px 1px rgba(0, 0, 0, 0.15),
+    0px 2px 1.5px rgba(0, 0, 0, 0.16);
+}
+[data-theme='dark'] .ik-card {
+  background-color: var(--surface-gray-1);
+  border-color: var(--outline-gray-2);
+}
+.ik-card-row:hover { background-color: var(--surface-blueprint-1); }
+[data-theme='dark'] .ik-card-row:hover { background-color: var(--surface-blueprint-2); }
+[data-theme='dark'] .ik-hero-card {
+  background-image: linear-gradient(
+    79.62deg,
+    rgba(10, 10, 30, 0.95) 65.76%,
+    rgba(0, 15, 204, 0.60) 98.33%
+  ) !important;
 }
 </style>

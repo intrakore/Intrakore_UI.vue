@@ -12,36 +12,53 @@
         <p class="text-[14px] leading-[1.15] text-ink-gray-6 tracking-[0.28px] m-0 mt-1" style="font-family:var(--font-body); font-weight:350;">
           Define what work to procure and how each chunk gets delivered.
         </p>
-        <div class="flex items-center gap-2 text-[12px] text-ink-gray-6 flex-wrap mt-3" style="font-family:var(--font-body)">
-          <span>14 packages</span>
-          <span class="text-ink-gray-3">·</span>
-          <span class="text-ink-amber-3 font-semibold">4 need a mode</span>
-          <span class="text-ink-gray-3">·</span>
-          <span>405 of 412 BOQ lines allocated</span>
-          <span class="text-ink-gray-3">·</span>
-          <span class="text-ink-amber-3 font-semibold">7 unallocated</span>
-          <span class="text-ink-gray-3">·</span>
-          <span>AED 24.6M committed</span>
-        </div>
+        <div class="flex gap-2 items-center mt-3 flex-wrap">
+        <span class="inline-flex items-center gap-2 bg-surface-blueprint-2 rounded-full px-2 py-[4.5px] text-[12px] font-medium text-ink-blueprint-4 tracking-[0.24px]" style="font-family:var(--font-body)">
+          14 packages · 405 of 412 BOQ lines allocated
+        </span>
+        <span class="inline-flex items-center gap-2 bg-surface-gray-2 rounded-full px-2 py-[4.5px] text-[12px] font-medium text-ink-gray-6 tracking-[0.24px]" style="font-family:var(--font-body)">
+          AED 24.6M committed
+        </span>
+        <span class="inline-flex items-center gap-2 bg-surface-amber-1 rounded-full px-2 py-[4.5px] text-[12px] font-medium text-ink-amber-3 tracking-[0.24px]" style="font-family:var(--font-body)">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+            <path d="M5.134 1.93a1 1 0 0 1 1.732 0l4.33 7.5A1 1 0 0 1 10.33 11H1.67a1 1 0 0 1-.866-1.5l4.33-7.5Z" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round"/>
+            <line x1="6" y1="5" x2="6" y2="7.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
+            <circle cx="6" cy="9.25" r="0.55" fill="currentColor"/>
+          </svg>
+          4 need a mode · 7 unallocated
+        </span>
+      </div>
       </div>
       <button
         type="button"
-        class="px-3.5 py-2 rounded-md border border-outline-gray-3 text-[12.5px] font-medium text-ink-gray-7 hover:border-outline-blueprint-3 hover:text-ink-blueprint-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-outline-blueprint-2 shrink-0"
+        class="px-3.5 py-2 rounded-md border border-outline-gray-3 bg-surface-white text-[12.5px] font-medium text-ink-gray-7 hover:border-outline-blueprint-3 hover:text-ink-blueprint-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-outline-blueprint-2 shrink-0"
         style="font-family:var(--font-body)"
         @click="toast.info('Export BOQ — not yet built in this prototype.')"
       >Export BOQ</button>
     </div>
 
     <!-- Status strip -->
-    <div v-if="stripVisible" class="rounded-xl border border-outline-amber-3 bg-surface-amber-1 px-5 py-3 flex items-center gap-5 flex-wrap">
-      <div class="flex items-center gap-3">
-        <div class="size-[26px] rounded-full bg-surface-amber-2 text-ink-amber-3 flex items-center justify-center text-[14px] font-bold shrink-0">!</div>
-        <div class="text-[12.5px] text-ink-gray-7" style="font-family:var(--font-body)"><strong class="text-ink-gray-8">7 BOQ lines unallocated</strong> <span class="text-ink-gray-5">· from variation V-019 (Piling)</span></div>
+    <div v-if="stripVisible" class="rounded-xl border border-outline-amber-3 bg-surface-amber-1 px-5 py-3 flex items-center gap-8 flex-wrap">
+      <div class="flex items-center gap-2">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 text-ink-amber-3">
+          <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
+          <line x1="12" y1="9" x2="12" y2="13"/>
+          <circle cx="12" cy="17" r="1"/>
+        </svg>
+        <div class="text-[12.5px] text-ink-gray-7" style="font-family:var(--font-body)">
+          <strong class="text-ink-gray-8">7 BOQ lines unallocated</strong>
+          <span class="text-ink-gray-5">· from variation V-019 (Piling)</span>
+        </div>
         <button type="button" class="text-[12px] font-semibold text-ink-blueprint-4 hover:underline focus:outline-none" @click="activeTab = 'unalloc'">Allocate →</button>
       </div>
-      <div class="flex items-center gap-3">
-        <div class="size-[26px] rounded-full bg-surface-amber-2 text-ink-amber-3 flex items-center justify-center text-[14px] shrink-0">✦</div>
-        <div class="text-[12.5px] text-ink-gray-7" style="font-family:var(--font-body)"><strong class="text-ink-gray-8">2 packages need attention.</strong> <span class="text-ink-gray-5">PKG-005 + PKG-006 close tender Friday.</span></div>
+      <div class="flex items-center gap-2">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" class="shrink-0 text-ink-amber-3">
+          <path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/>
+        </svg>
+        <div class="text-[12.5px] text-ink-gray-7" style="font-family:var(--font-body)">
+          <strong class="text-ink-gray-8">2 packages need attention.</strong>
+          <span class="text-ink-gray-5">PKG-005 + PKG-006 close tender Friday.</span>
+        </div>
       </div>
       <div class="flex-1" />
       <button type="button" class="text-ink-gray-5 hover:text-ink-gray-8 text-[14px] leading-none focus:outline-none" @click="stripVisible = false">✕</button>
@@ -116,7 +133,13 @@
                   <tr>
                     <td colspan="6" class="px-4 py-2.5 font-semibold text-[12.5px]" :class="pkg.unalloc ? 'bg-surface-amber-1' : 'bg-surface-gray-1'" style="font-family:var(--font-body)">
                       <span v-if="pkg.code" class="pkg-badge">{{ pkg.code }}</span>
-                      <span v-if="pkg.unalloc" class="pkg-badge warn">⚠</span>
+                     <span v-if="pkg.unalloc" class="inline-flex items-center mr-1">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-ink-amber-3">
+                        <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
+                        <line x1="12" y1="9" x2="12" y2="13"/>
+                        <circle cx="12" cy="17" r="1"/>
+                      </svg>
+                    </span>
                       <span :class="pkg.unalloc ? 'text-ink-amber-3' : 'text-ink-gray-8'">{{ pkg.title }}</span>
                       <span v-if="pkg.exec" class="exec-pill" :class="pkg.exec.mode">{{ pkg.exec.label }}</span>
                       <span v-if="pkg.meta" class="text-[11px] ml-2" :class="pkg.unalloc ? 'text-ink-amber-3' : 'text-ink-gray-5'">{{ pkg.meta }}</span>
@@ -237,32 +260,45 @@
     </div>
 
     <!-- Pane: Unallocated -->
-    <div v-show="activeTab === 'unalloc'" class="flex flex-col gap-4">
-      <p class="text-[12.5px] text-ink-gray-5 m-0" style="font-family:var(--font-body)">BOQ lines not yet assigned to any package. Allocate before tender to keep procurement clean.</p>
-
-      <div class="rounded-xl border border-outline-amber-3 bg-surface-amber-1 px-5 py-3 flex items-center gap-5 flex-wrap">
-        <div class="flex items-center gap-3">
-          <div class="size-[26px] rounded-full bg-surface-amber-2 text-ink-amber-3 flex items-center justify-center text-[14px] font-bold shrink-0">!</div>
-          <div class="text-[12.5px] text-ink-gray-7" style="font-family:var(--font-body)"><strong class="text-ink-gray-8">7 BOQ lines unallocated</strong> <span class="text-ink-gray-5">· from variation V-019 (Piling) issued 22 Apr 2026</span></div>
+        <div class="rounded-xl border border-outline-amber-3 bg-surface-amber-1 px-5 py-3 flex items-center gap-8 flex-wrap">
+      <div class="flex items-center gap-3">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 text-ink-amber-3">
+          <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
+          <line x1="12" y1="9" x2="12" y2="13"/>
+          <circle cx="12" cy="17" r="1"/>
+        </svg>
+        <div class="text-[12.5px] text-ink-gray-7" style="font-family:var(--font-body)">
+          <strong class="text-ink-gray-8">7 BOQ lines unallocated</strong>
+          <span class="text-ink-gray-5">· from variation V-019 (Piling) issued 22 Apr 2026</span>
         </div>
-        <div class="flex items-center gap-3">
-          <div class="size-[26px] rounded-full bg-surface-amber-2 text-ink-amber-3 flex items-center justify-center text-[14px] shrink-0">✦</div>
-          <div class="text-[12.5px] text-ink-gray-5" style="font-family:var(--font-body)">Kore detected: 5 of these 7 lines match PKG-002 Piling scope pattern.</div>
-        </div>
-        <div class="flex-1" />
-        <button
-          type="button"
-          class="px-3.5 py-2 rounded-md border border-outline-gray-3 bg-surface-white text-[12.5px] font-medium text-ink-gray-7 hover:border-outline-blueprint-3 hover:text-ink-blueprint-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-outline-blueprint-2"
-          style="font-family:var(--font-body)"
-          @click="toast.info('Bulk-assign — not yet built in this prototype.')"
-        >Bulk-assign</button>
-        <button
-          type="button"
-          class="px-3.5 py-2 rounded-md bg-surface-blueprint-5 text-[12.5px] font-medium text-white hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-outline-blueprint-2"
-          style="font-family:var(--font-body)"
-          @click="toast.info('One-click allocate — not yet built in this prototype.')"
-        >✦ One-click allocate to PKG-002</button>
       </div>
+      <div class="flex items-center gap-2">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" class="shrink-0 text-ink-amber-3">
+          <path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/>
+        </svg>
+        <div class="text-[12.5px] text-ink-gray-8" style="font-family:var(--font-body)">
+          Kore detected: 5 of these 7 lines match PKG-002 Piling scope pattern.
+        </div>
+      </div>
+      <div class="flex-1" />
+      <button
+        type="button"
+        class="px-3.5 py-2 rounded-md border border-outline-gray-3 bg-surface-white text-[12.5px] font-medium text-ink-gray-7 hover:border-outline-blueprint-3 hover:text-ink-blueprint-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-outline-blueprint-2"
+        style="font-family:var(--font-body)"
+        @click="toast.info('Bulk-assign — not yet built in this prototype.')"
+      >Bulk-assign</button>
+      <button
+        type="button"
+        class="inline-flex items-center gap-2 px-3.5 py-2 rounded-md bg-surface-blueprint-5 text-[12.5px] font-medium text-white hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-outline-blueprint-2"
+        style="font-family:var(--font-body)"
+        @click="toast.info('One-click allocate — not yet built in this prototype.')"
+      >
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" class="shrink-0">
+          <path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/>
+        </svg>
+        One-click allocate to PKG-002
+      </button>
+    </div>
 
       <div class="ik-card rounded-xl border border-outline-gray-2 bg-surface-white overflow-x-auto">
         <table class="w-full border-collapse">
@@ -301,12 +337,15 @@
         </table>
         <div class="flex items-center justify-between gap-3 flex-wrap px-4 py-3 text-[11.5px] bg-surface-amber-1 text-ink-amber-3" style="font-family:var(--font-body)">
           <span><strong>7 lines · AED 407,916 value.</strong> 5 Kore-tagged to PKG-002 · 2 untagged need QS judgement.</span>
-          <span>✦ Once allocated, scope updates flow into SC-002 as variation V-019 to Geotech FZE.</span>
+          <span class="flex items-center gap-1.5">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" class="shrink-0 text-ink-amber-3">
+            <path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/>
+          </svg>
+          Once allocated, scope updates flow into SC-002 as variation V-019 to Geotech FZE.
+        </span>
         </div>
       </div>
     </div>
-
-  </div>
 </template>
 
 <script setup lang="ts">
@@ -490,8 +529,8 @@ const unallocLines: UnallocLine[] = [
     0px 2px 1.5px rgba(0, 0, 0, 0.16);
 }
 [data-theme='dark'] .ik-card {
-  background-color: var(--surface-gray-2);
-  border-color: var(--outline-gray-3);
+  background-color: var(--surface-gray-1);
+  border-color: var(--outline-gray-2);
 }
 .ik-card-row:hover { background-color: var(--surface-blueprint-1); }
 [data-theme='dark'] .ik-card-row:hover { background-color: var(--surface-blueprint-2); }
@@ -527,7 +566,7 @@ const unallocLines: UnallocLine[] = [
   align-items: center;
   padding: 1px 6px;
   border-radius: 4px;
-  background-color: var(--surface-gray-2);
+  background-color: var(--surface-gray-1);
   color: var(--ink-gray-7);
   font-size: 10px;
   font-weight: 700;
@@ -567,10 +606,19 @@ const unallocLines: UnallocLine[] = [
   gap: 4px;
   padding: 2px 8px;
   border-radius: 12px;
-  background-color: var(--surface-gray-2);
+  background-color: var(--surface-gray-1);
   font-size: 9px;
   font-weight: 600;
   color: var(--ink-gray-5);
   margin-left: 6px;
+}
+.ik-card-row:hover { background-color: var(--surface-blueprint-1); }
+[data-theme='dark'] .ik-card-row:hover { background-color: var(--surface-blueprint-2); }
+[data-theme='dark'] .ik-hero-card {
+  background-image: linear-gradient(
+    79.62deg,
+    rgba(10, 10, 30, 0.95) 65.76%,
+    rgba(0, 15, 204, 0.60) 98.33%
+  ) !important;
 }
 </style>

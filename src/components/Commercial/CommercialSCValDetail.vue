@@ -12,17 +12,22 @@
         <p class="text-[14px] leading-[1.15] text-ink-gray-6 tracking-[0.28px] m-0 mt-1" style="font-family:var(--font-body); font-weight:350;">
           Review the claim line by line. Edit % complete where SC's claim doesn't match site reality.
         </p>
-        <div class="flex items-center gap-2 text-[12px] text-ink-gray-6 flex-wrap mt-3" style="font-family:var(--font-body)">
-          <span>SC-004 · Multitech MEP</span>
-          <span class="text-ink-gray-3">·</span>
-          <span>Contract value AED 4,920,000</span>
-          <span class="text-ink-gray-3">·</span>
-          <span>4 variations approved · +AED 280K</span>
-          <span class="text-ink-gray-3">·</span>
-          <span>This claim: AED 1,420,000</span>
-          <span class="text-ink-gray-3">·</span>
-          <span class="text-ink-amber-3 font-semibold">Awaiting QS review · day 3 of 14</span>
-        </div>
+        <div class="flex gap-2 items-center mt-3 flex-wrap">
+        <span class="inline-flex items-center gap-2 bg-surface-blueprint-2 rounded-full px-2 py-[4.5px] text-[12px] font-medium text-ink-blueprint-4 tracking-[0.24px]" style="font-family:var(--font-body)">
+          SC-004 · Multitech MEP
+        </span>
+        <span class="inline-flex items-center gap-2 bg-surface-gray-2 rounded-full px-2 py-[4.5px] text-[12px] font-medium text-ink-gray-6 tracking-[0.24px]" style="font-family:var(--font-body)">
+          Contract value AED 4,920,000 · 4 variations approved · +AED 280K · This claim: AED 1,420,000
+        </span>
+        <span class="inline-flex items-center gap-2 bg-surface-amber-1 rounded-full px-2 py-[4.5px] text-[12px] font-medium text-ink-amber-3 tracking-[0.24px]" style="font-family:var(--font-body)">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+            <path d="M5.134 1.93a1 1 0 0 1 1.732 0l4.33 7.5A1 1 0 0 1 10.33 11H1.67a1 1 0 0 1-.866-1.5l4.33-7.5Z" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round"/>
+            <line x1="6" y1="5" x2="6" y2="7.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
+            <circle cx="6" cy="9.25" r="0.55" fill="currentColor"/>
+          </svg>
+          Awaiting QS review · day 3 of 14
+        </span>
+      </div>
       </div>
       <button
         type="button"
@@ -146,11 +151,17 @@
       <p class="text-[12.5px] text-ink-gray-5 m-0 mb-3" style="font-family:var(--font-body)">Routes to James Chen (CM) for review, then Tarek Al-Mansouri (PD) for approval.</p>
       <div class="flex items-center gap-2.5 flex-wrap">
         <button
-          type="button"
-          class="px-4 py-2 rounded-lg bg-ink-blueprint-4 text-white text-[12.5px] font-semibold hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-outline-blueprint-2"
-          style="font-family:var(--font-body)"
-          @click="toast.info('Submit for CM approval — not yet built in this prototype.')"
-        >Submit for CM approval →</button>
+        type="button"
+        class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-surface-blueprint-5 text-white text-[12.5px] font-semibold hover:bg-surface-blueprint-6 focus:outline-none focus-visible:ring-2 focus-visible:ring-outline-blueprint-2"
+        style="font-family:var(--font-body)"
+        @click="toast.info('Submit for CM approval — not yet built in this prototype.')"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 11 12 14 22 4"/>
+          <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+        </svg>
+        Submit for CM approval
+      </button>
         <button
           type="button"
           class="px-4 py-2 rounded-lg border border-outline-gray-3 bg-surface-white text-[12.5px] font-medium text-ink-gray-7 hover:border-outline-blueprint-3 hover:text-ink-blueprint-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-outline-blueprint-2"
@@ -233,5 +244,12 @@ const calcRows: CalcRow[] = [
 [data-theme='dark'] .ik-card {
   background-color: var(--surface-gray-2);
   border-color: var(--outline-gray-3);
+}
+[data-theme='dark'] .ik-hero-card {
+  background-image: linear-gradient(
+    79.62deg,
+    rgba(10, 10, 30, 0.95) 65.76%,
+    rgba(0, 15, 204, 0.60) 98.33%
+  ) !important;
 }
 </style>

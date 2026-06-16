@@ -4,7 +4,7 @@
     class="fixed inset-0 z-50 flex items-center justify-center bg-black-overlay-200 p-4"
     @click.self="close"
   >
-    <div class="bg-surface-white rounded-2xl border border-outline-gray-2 w-full max-w-2xl max-h-[88vh] overflow-y-auto shadow-2xl">
+    <div class="bg-surface-white rounded-2xl border border-outline-gray-2 w-full max-w-4xl max-h-[88vh] overflow-y-auto shadow-2xl">
 
       <!-- Head -->
       <div class="flex items-center justify-between gap-4 px-6 py-4 border-b border-outline-gray-2">
@@ -25,7 +25,10 @@
           <h4 class="text-[14px] font-medium text-ink-gray-8 m-0 mb-2" style="font-family:var(--font-body)">Recipients · 4 bidders selected</h4>
           <div class="flex flex-col gap-1.5">
             <div v-for="r in recipients" :key="r.name" class="flex items-center gap-2 text-[13px] text-ink-gray-7" style="font-family:var(--font-body)">
-              <span>✉</span>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 text-ink-gray-5">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
               <span><strong class="text-ink-gray-8">{{ r.name }}</strong> · {{ r.email }}</span>
             </div>
           </div>
@@ -53,27 +56,32 @@
 
       </div>
 
-      <!-- Footer -->
+          <!-- Footer -->
       <div class="flex items-center justify-between gap-4 px-6 py-4 border-t border-outline-gray-2 flex-wrap">
         <span class="text-[11.5px] text-ink-gray-5">Sends the email and locks SC-005 for tender.</span>
         <div class="flex gap-2">
           <button
             type="button"
-            class="px-3.5 py-2 rounded-md border border-outline-gray-3 text-[12.5px] font-medium text-ink-gray-7 hover:border-outline-blueprint-3 hover:text-ink-blueprint-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-outline-blueprint-2"
+            class="px-4 py-2 rounded-md border border-outline-gray-3 bg-surface-white text-[12.5px] font-medium text-ink-gray-7 hover:border-outline-blueprint-3 hover:text-ink-blueprint-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-outline-blueprint-2"
             style="font-family:var(--font-body)"
             @click="close"
           >Cancel</button>
           <button
             type="button"
-            class="px-3.5 py-2 rounded-md bg-surface-blueprint-5 text-[12.5px] font-medium text-white hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-outline-blueprint-2"
+            class="inline-flex items-center gap-2 px-5 py-2 rounded-md bg-surface-blueprint-5 text-[12.5px] font-medium text-white hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-outline-blueprint-2"
             style="font-family:var(--font-body)"
             @click="send"
-          >✉ Send tender to 4 bidders</button>
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="22" y1="2" x2="11" y2="13"/>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+            </svg>
+            Send tender to 4 bidders
+          </button>
         </div>
       </div>
-
-    </div>
-  </div>
+        </div>
+      </div>
 </template>
 
 <script setup lang="ts">
