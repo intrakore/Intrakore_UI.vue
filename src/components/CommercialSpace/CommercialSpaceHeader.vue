@@ -287,12 +287,12 @@ const formattedDate = computed(() =>
   border-color: var(--outline-blueprint-3);
 }
 
-/* Dark mode token overrides propagate automatically via CSS vars on [data-theme='dark'] */
-[data-theme='dark'] .ik-csp-hero-card {
-  background-image: linear-gradient(
-    79.62deg,
-    rgba(10, 10, 30, 0.95) 65.76%,
-    rgba(0, 15, 204, 0.60) 98.33%
-  ) !important;
-}
-</style>
+  /* Dark mode token overrides propagate automatically via CSS vars on [data-theme='dark'] */
+  [data-theme='dark'] .ik-csp-hero-card {
+    background-image: linear-gradient(
+      79.62deg,
+      rgba(10, 10, 30, 0.95) 65.76%,
+      rgba(0, 15, 204, 0.60) 98.33%
+    ) !important;
+  }
+  </style>

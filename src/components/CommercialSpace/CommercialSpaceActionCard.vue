@@ -1,6 +1,6 @@
 <template>
   <!-- "need your action" card (Figma node 219:516) -->
-  <div class="csh-card rounded-xl border border-outline-gray-2 bg-surface-white flex flex-col gap-6 px-5 py-6 w-full">
+  <div class="csh-card rounded-xl border border-outline-gray-2 bg-surface-gray-1 flex flex-col gap-6 px-5 py-6 w-full">
 
     <!-- SECTION HEADER -->
     <div class="flex items-start gap-4 w-full">
@@ -36,7 +36,7 @@
     <div class="flex flex-col gap-3 w-full">
       <div
         v-for="(item, i) in items" :key="i"
-        class="csh-action-row rounded-xl border border-outline-gray-2 bg-surface-white px-4 py-3 flex flex-col gap-1 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-outline-blueprint-2"
+        class="csh-action-row rounded-xl border border-outline-gray-2 bg-surface-gray-1 px-4 py-3 flex flex-col gap-1 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-outline-blueprint-2"
         tabindex="0" role="button"
       >
         <div class="flex items-center gap-2">

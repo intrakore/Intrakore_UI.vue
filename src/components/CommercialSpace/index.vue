@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col gap-4 p-6 min-h-screen bg-surface-gray-1">
+  <div class="flex flex-col gap-4 p-6 min-h-screen bg-surface-white">
     <CommercialSpaceHeader />
     <div class="grid grid-cols-2 gap-4">
       <CommercialSpaceTaskCard />

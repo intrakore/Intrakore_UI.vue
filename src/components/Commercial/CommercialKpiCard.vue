@@ -1,10 +1,10 @@
 <template>
-  <div class="csh-metric-card bg-surface-white border border-outline-gray-2 rounded-xl px-6 py-8 flex flex-col gap-4 shrink-0 cursor-pointer relative overflow-hidden">
+  <div class="csh-metric-card bg-surface-white border border-outline-gray-2 rounded-xl px-4 py-4 flex flex-col gap-4 shrink-0 cursor-pointer relative overflow-hidden">
     <span class="absolute top-0 left-0 right-0 h-[3px]" :class="barClass" />
-    <p class="text-[16px] font-medium leading-[1.15] text-ink-gray-8 m-0" style="font-family:var(--font-body)">{{ label }}</p>
+    <p class="text-[14px] font-medium leading-[1.15] text-ink-gray-8 m-0" style="font-family:var(--font-body)">{{ label }}</p>
     <div class="flex flex-col gap-2">
-      <p class="text-[24px] leading-[1.15] text-ink-gray-9 m-0" style="font-family:var(--font-body); font-weight:800;">{{ value }}</p>
-      <p class="text-[14px] leading-[1.15] m-0" :class="subClass" style="font-family:var(--font-body)">{{ sub }}</p>
+      <p class="text-[20px] leading-[1.15] text-ink-gray-9 m-0" style="font-family:var(--font-body); font-weight:800;">{{ value }}</p>
+      <p class="text-[12px] leading-[1.15] m-0" :class="subClass" style="font-family:var(--font-body)">{{ sub }}</p>
     </div>
   </div>
 </template>

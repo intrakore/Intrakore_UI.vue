@@ -1,5 +1,12 @@
 <template>
   <div class="flex flex-col gap-4">
+  
+  <!-- Breadcrumb -->
+  <div class="flex items-center gap-2 text-[12px] text-ink-gray-5" style="font-family:var(--font-body)">
+    <button type="button" class="hover:text-ink-blueprint-3 transition-colors focus:outline-none" @click="showScreen('pl')">Your commercial portfolio</button>
+    <span class="text-ink-gray-3">›</span>
+    <span class="text-ink-gray-8 font-medium">Skyline Business Bay</span>
+  </div>
 
     <!-- Hero / header -->
 <div
@@ -40,12 +47,11 @@
       >Reports</button>
     </div>
   </div>
+</div>
 
   <!-- KPI strip inside hero -->
-  <div class="grid grid-cols-6 gap-4">
-    <CommercialKpiCard v-for="k in kpis" :key="k.label" class="min-w-[200px]" :label="k.label" :value="k.value" :sub="k.sub" :tone="k.tone" />
-  </div>
-
+   <div class="grid grid-cols-6 gap-2">
+  <CommercialKpiCard v-for="k in kpis" :key="k.label" :label="k.label" :value="k.value" :sub="k.sub" :tone="k.tone" />
 </div>
 
     <!-- Journeys -->

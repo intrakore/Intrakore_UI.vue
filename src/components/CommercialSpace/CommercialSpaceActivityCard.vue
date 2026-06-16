@@ -1,6 +1,6 @@
 <template>
   <!-- "recent activity" card (Figma node 227:497) -->
-  <div class="csh-activity-card rounded-xl border border-outline-gray-2 bg-surface-white flex flex-col gap-6 px-5 pt-6 pb-8 w-full">
+  <div class="csh-activity-card rounded-xl border border-outline-gray-2 bg-surface-gray-1 flex flex-col gap-6 px-5 pt-6 pb-8 w-full">
 
     <!-- SECTION HEADER -->
     <div class="flex items-start gap-4 w-full">
