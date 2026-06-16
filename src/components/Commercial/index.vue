@@ -1,6 +1,7 @@
 <template>
   <div class="flex flex-col gap-4 p-6 min-h-screen bg-surface-white">
 
+     <CommercialBreadcrumb />
     <CommercialProjectList v-if="currentScreen === 'pl'" />
     <CommercialProjectOverview v-else-if="currentScreen === 'a0'" />
     <CommercialBOQ v-else-if="currentScreen === 'a1a'" />
@@ -20,6 +21,7 @@
 </template>
 
 <script setup lang="ts">
+import CommercialBreadcrumb from './CommercialBreadcrumb.vue'
 import CommercialProjectList from './CommercialProjectList.vue'
 import CommercialProjectOverview from './CommercialProjectOverview.vue'
 import CommercialBOQ from './CommercialBOQ.vue'
